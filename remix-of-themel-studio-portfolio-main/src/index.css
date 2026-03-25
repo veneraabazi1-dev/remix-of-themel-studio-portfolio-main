@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 4.3%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 4.3%;
+
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 85%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 55%;
+
+    --accent: 0 0% 18%;
+    --accent-foreground: 0 0% 90%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 0 0% 40%;
+
+    --radius: 0rem;
+
+    --shell: 0 0% 4.3%;
+    --shell-foreground: 0 0% 100%;
+    --surface-light: 0 0% 96%;
+    --surface-light-foreground: 0 0% 10%;
+    --ring-stroke: 0 0% 100%;
+
+    --sidebar-background: 0 0% 4.3%;
+    --sidebar-foreground: 0 0% 85%;
+    --sidebar-primary: 0 0% 100%;
+    --sidebar-primary-foreground: 0 0% 4.3%;
+    --sidebar-accent: 0 0% 12%;
+    --sidebar-accent-foreground: 0 0% 90%;
+    --sidebar-border: 0 0% 18%;
+    --sidebar-ring: 0 0% 40%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.08em;
+  }
+
+  ::selection {
+    background: hsl(0 0% 100% / 0.15);
+    color: hsl(var(--foreground));
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  .font-body {
+    font-family: 'Inter', sans-serif;
+  }
+
+  .text-shell {
+    color: hsl(var(--shell-foreground));
+  }
+
+  .bg-shell {
+    background-color: hsl(var(--shell));
+  }
+
+  .bg-surface-light {
+    background-color: hsl(var(--surface-light));
+  }
+
+  .text-surface-light-fg {
+    color: hsl(var(--surface-light-foreground));
+  }
+
+  .border-ring-stroke {
+    border-color: hsl(var(--ring-stroke) / 0.12);
+  }
+
+  .ring-stroke {
+    stroke: hsl(var(--ring-stroke) / 0.15);
+  }
+
+  .ring-stroke-hover {
+    stroke: hsl(var(--ring-stroke) / 0.35);
+  }
+}
+
+/* Custom cursor */
+.custom-cursor {
+  width: 20px;
+  height: 20px;
+  border: 1.5px solid hsl(0 0% 100%);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transition: width 0.3s ease, height 0.3s ease, border-width 0.2s ease;
+  transform: translate(-50%, -50%);
+}
+
+.custom-cursor.expanded {
+  width: 48px;
+  height: 48px;
+  border-width: 1px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--shell));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(0 0% 25%);
+  border-radius: 2px;
+}
+
+/* Arc ring animation */
+@keyframes arc-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.arc-rotate {
+  animation: arc-rotate 8s linear infinite;
+}
+
+.arc-rotate-reverse {
+  animation: arc-rotate 12s linear infinite reverse;
+}
