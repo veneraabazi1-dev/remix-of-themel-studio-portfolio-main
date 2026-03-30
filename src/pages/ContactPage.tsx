@@ -49,7 +49,7 @@ const ContactPage = () => {
                     <span className="mb-1 block text-xs uppercase tracking-wide text-surface-light-fg/40">
                       Email
                     </span>
-                    <span className="text-surface-light-fg/75">info@themelstudio.com</span>
+                    <span className="text-surface-light-fg/75">info@themel-studio.com</span>
                   </div>
                   <div>
                     <span className="mb-1 block text-xs uppercase tracking-wide text-surface-light-fg/40">

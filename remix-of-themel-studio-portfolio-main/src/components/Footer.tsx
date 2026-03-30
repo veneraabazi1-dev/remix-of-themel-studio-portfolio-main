@@ -43,7 +43,7 @@ const Footer = () => {
               Kontakti
             </h4>
             <div className="flex flex-col gap-2 text-muted-foreground text-sm tracking-wide">
-              <span>info@themelstudio.com</span>
+              <span>info@themel-studio.com</span>
               <span>+383 45 213 244</span>
               <span>Prishtinë, Kosovë</span>
             </div>

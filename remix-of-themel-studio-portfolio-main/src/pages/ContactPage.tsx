@@ -53,7 +53,7 @@ const ContactPage = () => {
                     Email
                   </span>
                   <span className="text-surface-light-fg/75">
-                    info@themelstudio.com
+                    info@themel-studio.com
                   </span>
                 </div>
                 <div>
@@ -69,7 +69,7 @@ const ContactPage = () => {
                     Vendndodhja
                   </span>
                   <span className="text-surface-light-fg/75">
-                    Prishtinë, Kosovë
+                   Rr. Ulpiana nr. 32, Prishtinë, Kosovë
                   </span>
                 </div>
               </div>

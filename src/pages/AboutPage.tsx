@@ -29,10 +29,10 @@ const timeline = [
 ];
 
 const team = [
-  { name: "Ilir Mecini", role: "Drejtues i projekteve", initials: "IM" },
-  { name: "Blerta Abazi", role: "Arkitekte / Dizajnere e interierit", initials: "BA" },
-  { name: "Elvira Abazi", role: "Arkitekte / Dizajnere e interierit", initials: "EA" },
-  { name: "Lavdim Zabeli", role: "Inxhinier i statikes", initials: "LZ" },
+  { name: "Ilir Mecini", role: "Drejtues i projekteve", image: "/images/team/iliri.jpeg" },
+  { name: "Blerta Abazi", role: "Arkitekte / Dizajnere e interierit", image: "/images/team/blerta.jpeg" },
+  { name: "Elvira Abazi", role: "Arkitekte / Dizajnere e interierit", image: "/images/team/elvira.jpeg" },
+  { name: "Lavdim Zabeli", role: "Inxhinier i statikes", image: "/images/team/lavdimi.jpeg" },
 ];
 
 const values = [
@@ -228,13 +228,12 @@ const AboutPage = () => {
             <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
               {team.map((member) => (
                 <div key={member.name} className="text-center">
-                  <div className="mx-auto mb-5 flex h-28 w-28 items-center justify-center rounded-full border border-surface-light-fg/8 bg-surface-light-fg/5 md:h-36 md:w-36">
-                    <span
-                      className="text-xl tracking-[0.12em] text-surface-light-fg/30 md:text-2xl"
-                      style={{ fontFamily: '"Times New Roman", serif', fontWeight: 600 }}
-                    >
-                      {member.initials}
-                    </span>
+                  <div className="mx-auto mb-5 h-28 w-28 overflow-hidden rounded-full border border-surface-light-fg/8 bg-surface-light-fg/5 md:h-36 md:w-36">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="h-full w-full object-cover"
+                    />
                   </div>
                   <h4
                     className="mb-2 text-[15px] tracking-[0.04em] text-surface-light-fg md:text-[17px]"
