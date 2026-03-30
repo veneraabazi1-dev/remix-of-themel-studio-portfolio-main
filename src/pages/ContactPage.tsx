@@ -61,7 +61,7 @@ const ContactPage = () => {
                     <span className="mb-1 block text-xs uppercase tracking-wide text-surface-light-fg/40">
                       Vendndodhja
                     </span>
-                    <span className="text-surface-light-fg/75">Prishtine, Kosove</span>
+                    <span className="text-surface-light-fg/75">Rr. Ulpiana nr. 32, Prishtinë, Kosovë</span>
                   </div>
                 </div>
               </div>
