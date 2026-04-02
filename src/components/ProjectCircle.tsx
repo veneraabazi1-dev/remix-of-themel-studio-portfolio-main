@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface ProjectCircleProps {
   slug: string;
@@ -32,10 +33,21 @@ const ProjectCircle = ({
   grayscale = false,
 }: ProjectCircleProps) => {
   const [hovered, setHovered] = useState(false);
-  const dim = size === "sm" ? 144 : size === "md" ? 192 : 224;
-  const ringOneDim = dim + 34;
-  const ringTwoDim = dim + 66;
-  const ringThreeDim = dim + 98;
+  const isMobile = useIsMobile();
+  const dim = isMobile
+    ? size === "sm"
+      ? 124
+      : size === "md"
+        ? 164
+        : 188
+    : size === "sm"
+      ? 144
+      : size === "md"
+        ? 192
+        : 224;
+  const ringOneDim = dim + (isMobile ? 24 : 34);
+  const ringTwoDim = dim + (isMobile ? 46 : 66);
+  const ringThreeDim = dim + (isMobile ? 68 : 98);
 
   return (
     <Link

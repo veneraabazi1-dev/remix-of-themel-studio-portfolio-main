@@ -41,27 +41,27 @@ const ContactPage = () => {
           >
             <div className="space-y-10">
               <div>
-                <h3 className="mb-6 text-xs uppercase tracking-[0.25em] text-surface-light-fg/40">
+                <h3 className="mb-6 text-sm uppercase tracking-[0.25em] text-surface-light-fg/40 md:text-base">
                   Informata
                 </h3>
-                <div className="space-y-4 text-sm">
+                <div className="space-y-5 text-base md:text-lg">
                   <div>
-                    <span className="mb-1 block text-xs uppercase tracking-wide text-surface-light-fg/40">
+                    <span className="mb-1 block text-sm uppercase tracking-wide text-surface-light-fg/40 md:text-base">
                       Email
                     </span>
                     <span className="text-surface-light-fg/75">info@themel-studio.com</span>
                   </div>
                   <div>
-                    <span className="mb-1 block text-xs uppercase tracking-wide text-surface-light-fg/40">
+                    <span className="mb-1 block text-sm uppercase tracking-wide text-surface-light-fg/40 md:text-base">
                       Telefoni
                     </span>
                     <span className="text-surface-light-fg/75">+383 45 213 244</span>
                   </div>
                   <div>
-                    <span className="mb-1 block text-xs uppercase tracking-wide text-surface-light-fg/40">
+                    <span className="mb-1 block text-sm uppercase tracking-wide text-surface-light-fg/40 md:text-base">
                       Vendndodhja
                     </span>
-                    <span className="text-surface-light-fg/75">Rr. Ulpiana nr. 32, Prishtinë, Kosovë</span>
+                    <span className="text-surface-light-fg/75">Rr. EGNATIA, nr. 32, Prishtinë, Kosovë</span>
                   </div>
                 </div>
               </div>
@@ -71,9 +71,9 @@ const ContactPage = () => {
                   Harta
                 </h3>
                 <div className="overflow-hidden rounded-[28px] border border-surface-light-fg/10 bg-white/40">
-                  <iframe
-                    title="Prishtina Map"
-                    src="https://www.google.com/maps?q=Prishtine,Kosove&z=13&output=embed"
+                 <iframe
+                    title="32 Egnatia, Prishtinë"
+                    src="https://www.google.com/maps?hl=sq&gl=xk&q=32+Egnatia,+Prishtinë&z=17&output=embed"
                     className="h-[320px] w-full"
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"

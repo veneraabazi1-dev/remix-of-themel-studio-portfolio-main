@@ -42,7 +42,7 @@ const Footer = () => {
             <div className="flex flex-col gap-2 text-sm tracking-wide text-muted-foreground">
               <span>info@themel-studio.com</span>
               <span>+383 45 213 244</span>
-              <span>Rr. Ulpiana nr. 32, Prishtinë, Kosovë</span>
+              <span>Rr. Egnatia nr. 32, Prishtinë, Kosovë</span>
             </div>
           </div>
         </div>
