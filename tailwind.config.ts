@@ -66,8 +66,8 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        // sans: ["ISOCT2", "serif"],
-        // display: ["ISOCT2", "serif"],
+        sans: ["ISOCT2", "serif"],
+        display: ["ISOCT2", "serif"],
       },
       keyframes: {
         "accordion-down": {

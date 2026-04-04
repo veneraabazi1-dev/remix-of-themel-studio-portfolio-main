@@ -14,13 +14,17 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="absolute top-0 left-0 w-full z-50 px-6 md:px-12 py-6 flex items-center justify-between">
+      <nav className="absolute top-0 left-0 w-full z-50 px-6 md:px- py-3 flex items-center justify-between">
         <Link
           to="/"
-          className="text-foreground text-lg md:text-xl uppercase font-body tracking-[0.28em]"
-          style={{ fontWeight: 700 }}
+          className="inline-flex h-16 items-center md:h-14"
+          aria-label="THEMEL"
         >
-          THEMEL
+          <img
+            src="/11.png"
+            alt="THEMEL"
+            className="block h-full w-auto object-contain"
+          />
         </Link>
         <button
           onClick={() => setOpen(true)}
