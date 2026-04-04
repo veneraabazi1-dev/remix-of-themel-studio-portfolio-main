@@ -1,15 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
-  <rect width="256" height="256" rx="40" fill="#f4efe6" />
-  <text
-    x="128"
-    y="138"
-    fill="#141414"
-    font-family="Georgia, 'Times New Roman', serif"
-    font-size="42"
-    font-weight="700"
-    letter-spacing="-2"
-    text-anchor="middle"
-  >
-    themel
-  </text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <clipPath id="circleClip">
+      <circle cx="32" cy="32" r="30" />
+    </clipPath>
+  </defs>
+  <rect width="64" height="64" rx="32" fill="#f4f4f4" />
+  <image
+    href="/themelLogo.jpg"
+    x="2"
+    y="2"
+    width="60"
+    height="60"
+    preserveAspectRatio="xMidYMid slice"
+    clip-path="url(#circleClip)"
+  />
 </svg>

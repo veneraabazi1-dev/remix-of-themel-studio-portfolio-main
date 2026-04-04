@@ -104,7 +104,7 @@ const HomePage = () => {
               data-cursor-text
               className="text-4xl font-semibold uppercase tracking-[0.28em] md:text-7xl"
               style={{
-                fontFamily: '"Cormorant Garamond", "Times New Roman", serif',
+                fontFamily: '"ISOCT2", serif',
                 color: "#000000",
                 transform: `scale(${1 + titleIntensity * 0.12})`,
                 transition: "transform 0.14s ease-out",
@@ -156,51 +156,70 @@ const HomePage = () => {
         </section>
 
         <section className="relative z-10 px-6 pb-24 md:px-12 md:pb-32">
+          <div className="pointer-events-none absolute inset-x-0 top-8 mx-auto h-[540px] max-w-6xl overflow-hidden">
+            <div className="absolute left-[8%] top-8 h-[240px] w-[240px] rounded-full border border-black/[0.035]" />
+            <div className="absolute right-[12%] top-24 h-[320px] w-[320px] rounded-full border border-black/[0.03]" />
+            <div className="absolute left-1/2 top-2 h-[420px] w-[420px] -translate-x-1/2 rounded-full border border-black/[0.02]" />
+          </div>
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="mx-auto max-w-4xl border-t border-black/10 pt-12 text-center md:pt-16"
+            className="mx-auto max-w-5xl border-t border-black/8 pt-14 text-center md:pt-20 xl:max-w-[82rem]"
           >
             <h2
-              className="text-2xl uppercase tracking-[0.18em] text-[#111111] md:text-4xl"
-              style={{ fontFamily: '"Times New Roman", serif', fontWeight: 600 }}
+              className="text-[28px] uppercase tracking-[0.12em] text-[#111111] md:text-[42px]"
+              style={{ fontFamily: '"ISOCT2", serif', fontWeight: 600 }}
             >
               Vizioni Arkitekturor
             </h2>
 
             <div
-              className="mx-auto mt-8 max-w-3xl space-y-6 text-justify text-[15px] leading-8 text-[#2a2a2a] md:mt-10 md:text-[17px]"
-              style={{ fontFamily: '"Times New Roman", serif' }}
+              className="mx-auto mt-10 flex max-w-5xl flex-col gap-5 text-left md:gap-6 xl:max-w-[82rem]"
+              style={{ fontFamily: '"ISOCT2", serif' }}
             >
-              <p>
-                Ne THEMEL, cdo hapesire fillon si nje ide qe merr jete. Ne krijojme
-                ambiente ku funksionaliteti dhe estetika harmonizohen ne cdo
-                detaj, ku drita natyrale, materiali dhe proporcionet
-                nderveprojne per te formuar pervoja arkitekturore te
-                qendrueshme dhe te rafinuara.
-              </p>
+              <div className="flex flex-col gap-5 md:flex-row md:gap-6">
+                <p
+                  className="flex h-full w-full rounded-t-[60px] bg-[#ECECEC] px-12 py-7 text-justify text-[15px] font-medium leading-[1.95] tracking-[0.01em] text-[#111111] [hyphens:auto] [text-justify:inter-word] [-webkit-hyphens:auto] shadow-[0_18px_48px_rgba(0,0,0,0.09)] ring-1 ring-black/[0.05] transition-all duration-500 ease-out hover:-translate-y-[3px] hover:bg-[#E6E6E6] hover:shadow-[0_24px_64px_rgba(0,0,0,0.14)] md:h-[180px] md:w-[50%] md:py-8"
+                  style={{ fontFamily: '"Inter", sans-serif' }}
+                >
+                  Në THEMEL, çdo hapësirë fillon si një ide që merr jetë. Ne
+                  krijojmë ambiente ku funksionaliteti dhe estetika harmonizohen
+                  në çdo detaj, ku drita natyrale, materiali dhe proporcionet
+                  ndërveprojnë për të formuar përvoja arkitekturore të
+                  qëndrueshme dhe të rafinuara.
+                </p>
 
-              <p>
-                Qasja jone integron projektimin, analizen teknike dhe realizimin
-                praktik ne nje proces te koordinuar, ku cdo faze eshte e
-                menduar me kujdes dhe ne perputhje me standardet me te larta
-                profesionale.
-              </p>
+                <p
+                  className="flex h-full w-full rounded-t-[60px] bg-[#ECECEC] px-12 py-7 text-justify text-[15px] font-medium leading-[1.95] tracking-[0.01em] text-[#111111] [hyphens:auto] [text-justify:inter-word] [-webkit-hyphens:auto] shadow-[0_18px_48px_rgba(0,0,0,0.09)] ring-1 ring-black/[0.05] transition-all duration-500 ease-out hover:-translate-y-[3px] hover:bg-[#E6E6E6] hover:shadow-[0_24px_64px_rgba(0,0,0,0.14)] md:h-[180px] md:w-[50%] md:py-8"
+                  style={{ fontFamily: '"Inter", sans-serif' }}
+                >
+                  Qasja jonë integron projektimin, analizën teknike dhe realizimin praktik në një proces të koordinuar, 
+                  ku çdo fazë trajtohet me kujdes dhe sipas standardeve më të larta profesionale.
+                </p>
+              </div>
 
-              <p>
-                Renovimi nuk eshte vetem permiresim estetik; eshte transformim i
-                menyres se perjetimit te hapesires duke sjelle me shume drite,
-                rrjedhshmeri dhe funksionalitet afatgjate.
-              </p>
+              <div className="flex flex-col gap-5 md:flex-row md:gap-6">
+                <p
+                  className="flex h-full w-full rounded-b-[60px] bg-[#ECECEC] px-12 py-7 text-justify text-[15px] font-medium leading-[1.95] tracking-[0.01em] text-[#111111] [hyphens:auto] [text-justify:inter-word] [-webkit-hyphens:auto] shadow-[0_18px_48px_rgba(0,0,0,0.09)] ring-1 ring-black/[0.05] transition-all duration-500 ease-out hover:-translate-y-[3px] hover:bg-[#E6E6E6] hover:shadow-[0_24px_64px_rgba(0,0,0,0.14)] md:h-[180px] md:w-[50%] md:py-8"
+                  style={{ fontFamily: '"Inter", sans-serif' }}
+                >
+                  Renovimi nuk është vetëm përmirësim estetik; është transformim i
+                  mënyrës së përjetimit të hapësirës duke sjellë më shumë dritë,
+                  rrjedhshmëri dhe funksionalitet afatgjatë.
+                </p>
 
-              <p>
-                Pervoja jone e ndertuar nder vite lidh vizionin arkitekturor me
-                realizimin praktik, duke krijuar hapesira qe frymezojne,
-                qendrojne ne kohe dhe reflektojne ekuilibrin midis bukurise,
-                funksionit dhe qendrueshmerise.
-              </p>
+                <p
+                  className="flex h-full w-full rounded-b-[60px] bg-[#ECECEC] px-12 py-7 text-justify text-[15px] font-medium leading-[1.95] tracking-[0.01em] text-[#111111] [hyphens:auto] [text-justify:inter-word] [-webkit-hyphens:auto] shadow-[0_18px_48px_rgba(0,0,0,0.09)] ring-1 ring-black/[0.05] transition-all duration-500 ease-out hover:-translate-y-[3px] hover:bg-[#E6E6E6] hover:shadow-[0_24px_64px_rgba(0,0,0,0.14)] md:h-[180px] md:w-[50%] md:py-8"
+                  style={{ fontFamily: '"Inter", sans-serif' }}
+                >
+                  Përvoja jonë e ndërtuar ndër vite lidh vizionin arkitekturor me
+                  realizimin praktik, duke krijuar hapësira që frymëzojnë,
+                  qëndrojnë në kohë dhe reflektojnë ekuilibrin midis bukurisë,
+                  funksionit dhe qëndrueshmërisë.
+                </p>
+              </div>
             </div>
           </motion.div>
         </section>

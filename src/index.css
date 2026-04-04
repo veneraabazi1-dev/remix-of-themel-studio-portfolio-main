@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -60,11 +58,11 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Cormorant Garamond', serif;
+    font-family: "ISOCT2", serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: "ISOCT2", serif;
     letter-spacing: 0.08em;
   }
 
@@ -72,23 +70,29 @@
     text-align: justify;
   }
 
+  p::selection {
+    background: hsl(0 0% 0% / 0.06);
+    color: hsl(0 0% 4%);
+    text-shadow: 0 0 0.01px currentColor;
+  }
+
   ::selection {
-    background: hsl(0 0% 100% / 0.15);
-    color: hsl(var(--foreground));
+    background: transparent;
+    color: hsl(0 0% 8%);
   }
 }
 
 @layer utilities {
   .font-display {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: "ISOCT2", serif;
   }
 
   .font-body {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: "ISOCT2", serif;
   }
 
   .font-nav {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: "ISOCT2", serif;
   }
 
   .text-shell {
@@ -164,6 +168,16 @@
   to { transform: rotate(360deg); }
 }
 
+@keyframes orbit-forward {
+  from { transform: rotate(var(--orbit-start, 0deg)); }
+  to { transform: rotate(calc(var(--orbit-start, 0deg) + 360deg)); }
+}
+
+@keyframes orbit-reverse {
+  from { transform: rotate(var(--orbit-start, 0deg)); }
+  to { transform: rotate(calc(var(--orbit-start, 0deg) - 360deg)); }
+}
+
 .arc-rotate {
   animation: arc-rotate 8s linear infinite;
 }
@@ -178,4 +192,16 @@
 
 .arc-rotate-reverse-slow {
   animation: arc-rotate 24s linear infinite reverse;
+}
+
+.orbit-arc-forward {
+  animation: orbit-forward 21s linear infinite;
+  transform-origin: center;
+  will-change: transform;
+}
+
+.orbit-arc-reverse {
+  animation: orbit-reverse 25s linear infinite;
+  transform-origin: center;
+  will-change: transform;
 }

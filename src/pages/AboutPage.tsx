@@ -237,13 +237,13 @@ const AboutPage = () => {
                   </div>
                   <h4
                     className="mb-2 text-[15px] tracking-[0.04em] text-surface-light-fg md:text-[17px]"
-                    style={{ fontFamily: '"Times New Roman", serif', fontWeight: 600 }}
+                    style={{ fontFamily: '"ISOCT2", serif', fontWeight: 600 }}
                   >
                     {member.name}
                   </h4>
                   <p
                     className="mx-auto max-w-[180px] text-center text-[12px] leading-5 text-surface-light-fg/45 md:text-[13px]"
-                    style={{ fontFamily: '"Times New Roman", serif' }}
+                    style={{ fontFamily: '"ISOCT2", serif' }}
                   >
                     {member.role}
                   </p>
@@ -292,7 +292,7 @@ const AboutPage = () => {
                   </AccordionTrigger>
                   <AccordionContent
                     className="pb-6 text-justify text-[15px] leading-8 text-surface-light-fg/55 md:text-[17px]"
-                    style={{ fontFamily: '"Times New Roman", serif' }}
+                    style={{ fontFamily: '"ISOCT2", serif' }}
                   >
                     {service.desc}
                   </AccordionContent>

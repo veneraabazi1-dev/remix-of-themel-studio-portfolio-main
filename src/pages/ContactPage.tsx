@@ -4,10 +4,52 @@ import Layout from "@/components/Layout";
 
 const ContactPage = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState<{
+    type: "success" | "error";
+    message: string;
+  } | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", form);
+    setIsSubmitting(true);
+    setStatus(null);
+
+    try {
+      const response = await fetch(
+        "https://formsubmit.co/ajax/info@themel-studio.com",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            name: form.name,
+            email: form.email,
+            message: form.message,
+            _subject: `Kontakt nga ${form.name}`,
+          }),
+        },
+      );
+
+      if (!response.ok) {
+        throw new Error("Request failed");
+      }
+
+      setForm({ name: "", email: "", message: "" });
+      setStatus({
+        type: "success",
+        message: "Mesazhi u dergua me sukses.",
+      });
+    } catch {
+      setStatus({
+        type: "error",
+        message: "Mesazhi nuk u dergua. Provo perseri.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -89,6 +131,7 @@ const ContactPage = () => {
                 </label>
                 <input
                   type="text"
+                  required
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
                   className="w-full border-b border-surface-light-fg/15 bg-transparent pb-2 text-sm text-surface-light-fg outline-none transition-colors focus:border-surface-light-fg/40"
@@ -100,6 +143,7 @@ const ContactPage = () => {
                 </label>
                 <input
                   type="email"
+                  required
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
                   className="w-full border-b border-surface-light-fg/15 bg-transparent pb-2 text-sm text-surface-light-fg outline-none transition-colors focus:border-surface-light-fg/40"
@@ -111,6 +155,7 @@ const ContactPage = () => {
                 </label>
                 <textarea
                   rows={4}
+                  required
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
                   className="w-full resize-none border-b border-surface-light-fg/15 bg-transparent pb-2 text-sm text-surface-light-fg outline-none transition-colors focus:border-surface-light-fg/40"
@@ -118,10 +163,22 @@ const ContactPage = () => {
               </div>
               <button
                 type="submit"
+                disabled={isSubmitting}
                 className="border border-surface-light-fg/15 px-8 py-3 text-xs uppercase tracking-[0.25em] text-surface-light-fg/60 transition-all hover:border-surface-light-fg/40 hover:text-surface-light-fg"
               >
-                Dergo
+                {isSubmitting ? "Duke derguar..." : "Dergo"}
               </button>
+              {status ? (
+                <p
+                  className={`text-sm ${
+                    status.type === "success"
+                      ? "text-green-700"
+                      : "text-red-700"
+                  }`}
+                >
+                  {status.message}
+                </p>
+              ) : null}
             </form>
           </motion.div>
         </div>

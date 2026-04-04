@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import { useIsMobile } from "@/hooks/use-mobile";
 
@@ -18,10 +18,10 @@ const sizeClasses = {
 };
 
 const bgTones = [
-  "linear-gradient(145deg, rgba(28,28,28,0.96), rgba(58,58,58,0.78))",
-  "linear-gradient(145deg, rgba(42,42,42,0.96), rgba(84,84,84,0.72))",
-  "linear-gradient(145deg, rgba(24,24,24,0.96), rgba(66,66,66,0.7))",
-  "linear-gradient(145deg, rgba(36,36,36,0.96), rgba(92,92,92,0.68))",
+  "linear-gradient(150deg, rgba(32,32,32,0.96), rgba(78,78,78,0.72))",
+  "linear-gradient(150deg, rgba(40,40,40,0.96), rgba(88,88,88,0.68))",
+  "linear-gradient(150deg, rgba(26,26,26,0.96), rgba(70,70,70,0.66))",
+  "linear-gradient(150deg, rgba(34,34,34,0.96), rgba(94,94,94,0.64))",
 ];
 
 const ProjectCircle = ({
@@ -45,9 +45,10 @@ const ProjectCircle = ({
       : size === "md"
         ? 192
         : 224;
-  const ringOneDim = dim + (isMobile ? 24 : 34);
-  const ringTwoDim = dim + (isMobile ? 46 : 66);
-  const ringThreeDim = dim + (isMobile ? 68 : 98);
+  const ringInnerDim = dim + (isMobile ? 22 : 28);
+  const ringOuterDim = dim + (isMobile ? 42 : 54);
+  const orbitInnerStyle = { "--orbit-start": "14deg" } as CSSProperties;
+  const orbitOuterStyle = { "--orbit-start": "-22deg" } as CSSProperties;
 
   return (
     <Link
@@ -57,67 +58,71 @@ const ProjectCircle = ({
       onMouseLeave={() => setHovered(false)}
     >
       <div className="relative flex items-center justify-center">
-        <svg
-          className={`absolute transition-all duration-700 ease-out ${
-            hovered ? "opacity-100 scale-100 arc-rotate-slow" : "opacity-60 scale-[0.985]"
+        <div
+          className={`absolute transition-all duration-700 ${
+            hovered
+              ? "orbit-arc-reverse opacity-80 scale-[1.01]"
+              : "opacity-40 scale-[0.992]"
           }`}
-          width={ringThreeDim}
-          height={ringThreeDim}
-          viewBox={`0 0 ${ringThreeDim} ${ringThreeDim}`}
+          style={{
+            ...orbitOuterStyle,
+            transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",
+          }}
         >
-          <circle
-            cx={ringThreeDim / 2}
-            cy={ringThreeDim / 2}
-            r={ringThreeDim / 2 - 2}
-            fill="none"
-            stroke="rgba(0,0,0,0.24)"
-            strokeWidth="0.9"
-            strokeDasharray="96 28 18 34"
-            strokeLinecap="round"
-          />
-        </svg>
-
-        <svg
-          className={`absolute transition-all duration-700 ease-out ${
-            hovered ? "opacity-90 scale-100 arc-rotate-reverse-slow" : "opacity-45 scale-[0.99]"
-          }`}
-          width={ringTwoDim}
-          height={ringTwoDim}
-          viewBox={`0 0 ${ringTwoDim} ${ringTwoDim}`}
-        >
-          <circle
-            cx={ringTwoDim / 2}
-            cy={ringTwoDim / 2}
-            r={ringTwoDim / 2 - 2}
-            fill="none"
-            stroke="rgba(0,0,0,0.28)"
-            strokeWidth="0.9"
-            strokeDasharray="132 30"
-            strokeLinecap="round"
-          />
-        </svg>
-
-        <svg
-          className={`absolute transition-all duration-500 ease-out ${
-            hovered ? "opacity-100 scale-[1.02]" : "opacity-55 scale-100"
-          }`}
-          width={ringOneDim}
-          height={ringOneDim}
-          viewBox={`0 0 ${ringOneDim} ${ringOneDim}`}
-        >
-          <circle
-            cx={ringOneDim / 2}
-            cy={ringOneDim / 2}
-            r={ringOneDim / 2 - 2}
-            fill="none"
-            stroke="rgba(0,0,0,0.32)"
-            strokeWidth="0.8"
-          />
-        </svg>
+          <svg
+            width={ringOuterDim}
+            height={ringOuterDim}
+            viewBox={`0 0 ${ringOuterDim} ${ringOuterDim}`}
+          >
+            <circle
+              cx={ringOuterDim / 2}
+              cy={ringOuterDim / 2}
+              r={ringOuterDim / 2 - 2}
+              fill="none"
+              stroke="rgba(255,255,255,0.18)"
+              strokeWidth="0.95"
+              strokeDasharray="30 20"
+              strokeDashoffset="10"
+              strokeLinecap="round"
+            />
+          </svg>
+        </div>
 
         <div
-          className={`${sizeClasses[size]} rounded-full overflow-hidden relative z-10 flex items-center justify-center transition-all duration-700 ease-out ${
-            hovered ? "scale-[1.045] shadow-[0_20px_50px_rgba(0,0,0,0.16)]" : "scale-100"
+          className={`absolute transition-all duration-700 ${
+            hovered
+              ? "orbit-arc-forward opacity-95 scale-[1.02]"
+              : "opacity-55 scale-100"
+          }`}
+          style={{
+            ...orbitInnerStyle,
+            transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",
+          }}
+        >
+          <svg
+            width={ringInnerDim}
+            height={ringInnerDim}
+            viewBox={`0 0 ${ringInnerDim} ${ringInnerDim}`}
+          >
+            <circle
+              cx={ringInnerDim / 2}
+              cy={ringInnerDim / 2}
+              r={ringInnerDim / 2 - 2}
+              fill="none"
+              stroke="rgba(255,255,255,0.14)"
+              strokeWidth="0.8"
+              strokeDasharray="18 16"
+              strokeDashoffset="4"
+              strokeLinecap="round"
+            />
+          </svg>
+        </div>
+
+        <div
+          className={`${sizeClasses[size]} relative z-10 flex items-center justify-center overflow-hidden rounded-full transition-all duration-700 ease-out ${
+            hovered
+              ? "scale-[1.035] shadow-[0_22px_48px_rgba(0,0,0,0.14)]"
+              : "scale-100 shadow-[0_14px_34px_rgba(0,0,0,0.08)]"
           }`}
           style={{ background: bgTones[imageIndex % bgTones.length] }}
         >
@@ -129,19 +134,19 @@ const ProjectCircle = ({
             />
           ) : null}
 
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.18),transparent_42%),radial-gradient(circle_at_70%_70%,rgba(255,255,255,0.08),transparent_36%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_28%_28%,rgba(255,255,255,0.2),transparent_40%),radial-gradient(circle_at_72%_72%,rgba(255,255,255,0.06),transparent_38%)]" />
 
           <div
-            className={`absolute inset-[14%] rounded-full border border-white/15 transition-all duration-700 ease-out ${
-              hovered ? "scale-[1.08] opacity-90" : "scale-100 opacity-55"
+            className={`absolute inset-[13%] rounded-full border border-white/12 transition-all duration-700 ease-out ${
+              hovered ? "scale-[1.05] opacity-85" : "scale-100 opacity-50"
             }`}
           />
         </div>
       </div>
 
       <span
-        className="relative z-10 mt-12 max-w-[180px] text-[#181818] text-[12px] md:text-[13px] font-bold tracking-[0.12em] uppercase text-center leading-tight font-display"
-        style={{ fontFamily: '"Cormorant Garamond", "Times New Roman", serif', fontWeight: 700 }}
+        className="relative z-10 mt-10 max-w-[180px] text-[12px] font-bold uppercase leading-tight tracking-[0.12em] text-[#1f1f1f] md:text-[13px] font-display"
+        style={{ fontFamily: '"ISOCT2", serif', fontWeight: 700 }}
       >
         {title}
       </span>

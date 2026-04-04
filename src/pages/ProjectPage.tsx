@@ -119,7 +119,7 @@ const ProjectPage = () => {
           >
             <p
               className="text-justify text-[15px] leading-8 text-surface-light-fg/70 md:text-[17px]"
-              style={{ fontFamily: '"Times New Roman", serif' }}
+              style={{ fontFamily: '"ISOCT2", serif' }}
             >
               {project.description}
             </p>
@@ -188,47 +188,35 @@ const ProjectPage = () => {
             className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-20"
           >
             {[
-              { title: "Koncepti", text: project.concept },
+              {
+                title: "Koncepti",
+                text: "Koncepti i projektit fokusohet në krijimin e një hapësire të qetë dhe harmonike përmes linjave të pastra, materialeve natyrore dhe ndriçimit indirekt që thekson arkitekturën e brendshme, duke krijuar një ambient të balancuar dhe funksional.",
+              },
               { title: "Qasja e Dizajnit", text: project.design },
               { title: "Materialet", text: project.materials },
             ].map((section) => (
-              <div key={section.title}>
-                <h3 className="text-xs tracking-[0.25em] uppercase text-surface-light-fg/40 mb-4">
-                  {section.title}
-                </h3>
-                <p
-                  className="text-justify text-[14px] leading-7 text-surface-light-fg/65 md:text-[15px]"
-                  style={{ fontFamily: '"Times New Roman", serif' }}
-                >
-                  {section.text}
-                </p>
+              <div
+                key={section.title}
+                className="flex h-full rounded-[24px] bg-[#ECECEC] px-12 py-7 text-left shadow-[0_18px_48px_rgba(0,0,0,0.09)] ring-1 ring-black/[0.05] transition-all duration-500 ease-out hover:-translate-y-[3px] hover:bg-[#E6E6E6] hover:shadow-[0_24px_64px_rgba(0,0,0,0.14)] md:px-12 md:py-8"
+              >
+                <div>
+                  <h3
+                    className="mb-4 text-center text-xs font-bold uppercase tracking-[0.25em] text-surface-light-fg/40"
+                    style={{ fontFamily: '"Inter", sans-serif' }}
+                  >
+                    {section.title}
+                  </h3>
+                  <p
+                    className="text-justify text-[15px] font-medium leading-[1.95] tracking-[0.01em] text-[#111111] [hyphens:auto] [text-justify:inter-word] [-webkit-hyphens:auto]"
+                    style={{ fontFamily: '"Inter", sans-serif' }}
+                  >
+                    {section.text}
+                  </p>
+                </div>
               </div>
             ))}
           </motion.div>
 
-          {/* Plans */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h3 className="text-xs tracking-[0.25em] uppercase text-surface-light-fg/40 mb-6">
-              Planet / Planimetri
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {["Plan A", "Plan B"].map((label) => (
-                <div
-                  key={label}
-                  className="aspect-[4/3] border border-surface-light-fg/8 flex items-center justify-center"
-                >
-                  <span className="text-surface-light-fg/20 text-xs tracking-[0.2em] uppercase">
-                    {label}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
         </div>
       </div>
 
