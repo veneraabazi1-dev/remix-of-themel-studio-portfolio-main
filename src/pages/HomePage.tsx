@@ -116,15 +116,18 @@ const HomePage = () => {
             <p
               ref={heroSubtitleRef}
               data-cursor-text
-              className="mt-5 text-[11px] uppercase tracking-[0.38em] md:text-sm"
+              className="mt-5 flex flex-col items-center gap-2 text-[11px] uppercase tracking-[0.38em] md:flex-row md:justify-center md:gap-0 md:text-sm"
               style={{
                 color: `rgba(44, 44, 44, ${0.56 + subtitleIntensity * 0.44})`,
                 transform: `scale(${1 + subtitleIntensity * 0.08})`,
                 transition: "transform 0.14s ease-out, color 0.14s ease-out",
               }}
             >
-              Projektim <span className="text-[#8f6b36]">/</span> Renovim{" "}
-              <span className="text-[#8f6b36]">/</span> Rindertim
+              <span>Projektim</span>
+              <span className="hidden text-[#8f6b36] md:inline">/</span>
+              <span>Renovim</span>
+              <span className="hidden text-[#8f6b36] md:inline">/</span>
+              <span>Rindertim</span>
             </p>
           </motion.div>
         </section>
