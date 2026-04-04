@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
@@ -73,8 +73,29 @@ const services = [
   },
 ];
 
+const galleryImages = [
+  "/images/galeri/GALERI/1111.jpeg",
+  "/images/galeri/GALERI/3.jpeg",
+  "/images/galeri/GALERI/W666666.jpeg",
+  "/images/galeri/GALERI/Whats44444444444.jpeg",
+  "/images/galeri/GALERI/WhatsApp Ima2222222222.jpeg",
+  "/images/galeri/GALERI/WhatsApp Imag2222222222222222.jpeg",
+  "/images/galeri/GALERI/WhatsApp Image 2026-03-06 .jpeg",
+  "/images/galeri/GALERI/WhatsApp Image 2026-03-06 at 20.01.33.jpeg",
+  "/images/galeri/GALERI/WhatsApp Image 2026-03-06 at 20.01.34.jpeg",
+  "/images/galeri/GALERI/WhatsApp Image 2026-03-06 at 20.01.35.jpeg",
+  "/images/galeri/GALERI/WhatsApp Image 2026-03-06 at 20.01.57.jpeg",
+  "/images/galeri/GALERI/WhatsApp Image 2026-03-06 at 20.04.04.jpeg",
+  "/images/galeri/GALERI/WhatsApp Image 2026-03-06 at 22222.jpeg",
+  "/images/galeri/GALERI/WhatsApp Image 2026-03-06 at 222222222222.jpeg",
+  "/images/galeri/GALERI/WhatsApp Image 2026-03-06 at 222222222222222222222.jpeg",
+  "/images/galeri/GALERI/WhatsApp Image 2026-03-06 at 33333333.jpeg",
+  "/images/galeri/GALERI/WhatsApp Image 2026-03-06 at 55555555.jpeg",
+];
+
 const AboutPage = () => {
   const location = useLocation();
+  const [activeGalleryImage, setActiveGalleryImage] = useState<string | null>(null);
 
   useEffect(() => {
     if (location.hash === "#sherbimet") {
@@ -101,30 +122,32 @@ const AboutPage = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="mb-24 max-w-3xl"
+            className="mx-auto my-24 rounded-[36px] bg-[#ECECEC] px-8 py-8 shadow-[0_18px_48px_rgba(0,0,0,0.09)] ring-1 ring-black/[0.05] transition-all duration-500 ease-out hover:-translate-y-[2px] hover:bg-[#E6E6E6] hover:shadow-[0_24px_64px_rgba(0,0,0,0.12)] md:px-10 md:py-10"
           >
             <h2 className="mb-6 text-sm uppercase tracking-[0.22em] text-black md:text-[15px]">
               THEMEL - Projektim, Dizajn, Renovim dhe Rindertim
             </h2>
-            <p className="mb-4 text-justify text-sm leading-relaxed text-surface-light-fg/65 md:text-base">
-              THEMEL eshte nje studio e fokusuar ne projektim, dizajn, renovim
-              dhe rindertim te hapesirave. E ndertuar mbi pervojen dhe
-              praktikat profesionale te kompanise Mecini Bau ne Gjermani qe
-              nga viti 2005, studio sjell ne Kosove nje qasje te strukturuar
-              dhe profesionale ne zhvillimin dhe realizimin e projekteve
-              ndertimore.
+           <p className="mb-4 text-justify text-sm leading-relaxed text-surface-light-fg/65 md:text-base">
+              THEMEL është një studio e fokusuar në projektim, dizajn, renovim
+              dhe rindërtim të hapësirave. E ndërtuar mbi përvojën dhe
+              praktikat profesionale të kompanisë Mecini Bau në Gjermani që
+              nga viti 2005, studio sjell në Kosovë një qasje të strukturuar
+              dhe profesionale në zhvillimin dhe realizimin e projekteve
+              ndërtimore.
             </p>
+
             <p className="mb-4 text-justify text-sm leading-relaxed text-surface-light-fg/65 md:text-base">
-              Procesi yne i punes perfshin te gjitha fazat e projektit nga
+              Procesi ynë i punës përfshin të gjitha fazat e projektit nga
               konceptimi, projektimi dhe dizajni, deri te renovimi dhe
-              realizimi i plote i punimeve, duke garantuar cilesi te larte,
-              funksionalitet dhe standarde bashkekohore ndertimore.
+              realizimi i plotë i punimeve, duke garantuar cilësi të lartë,
+              funksionalitet dhe standarde bashkëkohore ndërtimore.
             </p>
+
             <p className="text-justify text-sm leading-relaxed text-surface-light-fg/65 md:text-base">
-              Ne bashkepunim te ngushte me klientet, synojme te krijojme
-              hapesira te menduara me kujdes ne cdo detaj, te cilat i
-              pergjigjen ne menyre te qendrueshme nevojave moderne te jeteses
-              dhe te punes.
+              Në bashkëpunim të ngushtë me klientët, synojmë të krijojmë
+              hapësira të menduara me kujdes në çdo detaj, të cilat i
+              përgjigjen në mënyrë të qëndrueshme nevojave moderne të jetesës
+              dhe të punës.
             </p>
           </motion.div>
 
@@ -134,42 +157,43 @@ const AboutPage = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
+              className="rounded-[36px] bg-[#ECECEC] px-8 py-8 shadow-[0_18px_48px_rgba(0,0,0,0.09)] ring-1 ring-black/[0.05] transition-all duration-500 ease-out hover:-translate-y-[2px] hover:bg-[#E6E6E6] hover:shadow-[0_24px_64px_rgba(0,0,0,0.12)] md:px-10 md:py-10"
             >
               <h2 className="mb-6 text-sm uppercase tracking-[0.22em] text-black md:text-[15px]">
                 Historiku
               </h2>
               <p className="mb-4 text-justify text-sm leading-relaxed text-surface-light-fg/65 md:text-base">
-                Transformimi dhe permiresimi i hapesirave te ndertuara kerkon
-                ekspertize profesionale, standarde te larta teknike dhe nje
-                qasje te strukturuar ne cdo faze te projektit. Ne Kosove, nje
-                pjese e konsiderueshme e objekteve u ndertuan ne periudhen pas
-                luftes ne kushte zhvillimi te shpejte dhe shpesh pa planifikim
-                te plote teknik. Sot, shume prej ketyre objekteve kerkojne
-                nderhyrje profesionale ne renovim dhe rindertim per te
-                permbushur standardet bashkekohore te cilesise, sigurise dhe
-                funksionalitetit. Ne menyre te natyrshme, edhe objektet e
-                ndertuara ne kushte te rregullta kerkojne rinovim pas nje
-                periudhe prej rreth 20-25 vitesh, per t'u pershtatur me
-                kerkesat moderne te ndertimit dhe perdorimit.
+                Transformimi dhe përmirësimi i hapësirave të ndërtuara kërkon
+                ekspertizë profesionale, standarde të larta teknike dhe një
+                qasje të strukturuar në çdo fazë të projektit. Në Kosovë, një
+                pjesë e konsiderueshme e objekteve u ndërtuan në periudhën pas
+                luftës në kushte zhvillimi të shpejtë dhe shpesh pa planifikim
+                të plotë teknik. Sot, shumë prej këtyre objekteve kërkojnë
+                ndërhyrje profesionale në renovim dhe rindërtim për të
+                përmbushur standardet bashkëkohore të cilësisë, sigurisë dhe
+                funksionalitetit. Në mënyrë të natyrshme, edhe objektet e
+                ndërtuara në kushte të rregullta kërkojnë rinovim pas një
+                periudhe prej rreth 20–25 vitesh, për t'u përshtatur me
+                kërkesat moderne të ndërtimit dhe përdorimit.
               </p>
               <p className="mb-4 text-justify text-sm leading-relaxed text-surface-light-fg/65 md:text-base">
-                THEMEL mbeshtetet ne pervojen dhe traditen profesionale te
-                kompanise Mecini Bau, e themeluar ne Gjermani ne vitin 2005.
-                Kjo pervoje sjell ne Kosove nje qasje te disiplinuar dhe te
-                bazuar ne standarde evropiane ne fushen e renovimit dhe
-                ndertimit te thate. Me certifikim nga Knauf Akademie - Iphofen,
-                ofrojme zgjidhje te avancuara teknike qe perfshijne sisteme te
-                mureve dhe tavaneve akustike, sisteme te mbrojtjes kunder
-                zjarrit, si dhe zgjidhje te tjera profesionale qe rrisin
-                sigurine, funksionalitetin dhe cilesine e hapesirave.
+              THEMEL mbështetet në përvojën dhe traditën profesionale të
+              kompanisë Mecini Bau, e themeluar në Gjermani në vitin 2005.
+              Kjo përvojë sjell në Kosovë një qasje të disiplinuar dhe të
+              bazuar në standarde evropiane në fushën e renovimit dhe
+              ndërtimit të thatë. Me certifikim nga Knauf Akademie – Iphofen,
+              ofrojmë zgjidhje të avancuara teknike që përfshijnë sisteme të
+              mureve dhe tavaneve akustike, sisteme të mbrojtjes kundër
+              zjarrit, si dhe zgjidhje të tjera profesionale që rrisin
+              sigurinë, funksionalitetin dhe cilësinë e hapësirave
               </p>
               <p className="text-justify text-sm leading-relaxed text-surface-light-fg/65 md:text-base">
-                Angazhimi yne eshte te realizojme projekte me standarde te
-                larta profesionale, duke ofruar nje proces te integruar qe
-                perfshin analizen e nevojave, planifikimin, projektimin dhe
-                realizimin e plote te punimeve. Permes ketij procesi, THEMEL
-                synon te kontribuoje ne zhvillimin e hapesirave ndertimore me
-                cilesore, funksionale dhe te qendrueshme.
+                 Angazhimi ynë është të realizojmë projekte me standarde të
+                larta profesionale, duke ofruar një proces të integruar që
+                përfshin analizën e nevojave, planifikimin, projektimin dhe
+                realizimin e plotë të punimeve. Përmes këtij procesi, THEMEL
+                synon të kontribuojë në zhvillimin e hapësirave ndërtimore më
+                cilësore, funksionale dhe të qëndrueshme.
               </p>
             </motion.div>
 
@@ -178,7 +202,7 @@ const AboutPage = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.75, ease: "easeOut" }}
-              className="pt-1 md:pt-2"
+              className="rounded-[36px] bg-[#ECECEC] px-8 py-8 shadow-[0_18px_48px_rgba(0,0,0,0.09)] ring-1 ring-black/[0.05] transition-all duration-500 ease-out hover:-translate-y-[2px] hover:bg-[#E6E6E6] hover:shadow-[0_24px_64px_rgba(0,0,0,0.12)] md:px-10 md:py-10"
             >
               <h2 className="mb-8 text-sm uppercase tracking-[0.22em] text-black md:text-[15px]">
                 Rrjedha nder vite
@@ -227,7 +251,10 @@ const AboutPage = () => {
             </h2>
             <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
               {team.map((member) => (
-                <div key={member.name} className="text-center">
+                <div
+                  key={member.name}
+                  className="rounded-[32px] bg-[#ECECEC] px-5 py-7 text-center shadow-[0_18px_48px_rgba(0,0,0,0.09)] ring-1 ring-black/[0.05] transition-all duration-500 ease-out hover:-translate-y-[3px] hover:bg-[#E6E6E6] hover:shadow-[0_24px_64px_rgba(0,0,0,0.14)] md:px-6"
+                >
                   <div className="mx-auto mb-5 h-28 w-28 overflow-hidden rounded-full border border-surface-light-fg/8 bg-surface-light-fg/5 md:h-36 md:w-36">
                     <img
                       src={member.image}
@@ -264,7 +291,10 @@ const AboutPage = () => {
             </h2>
             <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
               {values.map((value) => (
-                <div key={value.title}>
+                <div
+                  key={value.title}
+                  className="rounded-[32px] bg-[#ECECEC] px-8 py-8 shadow-[0_18px_48px_rgba(0,0,0,0.09)] ring-1 ring-black/[0.05] transition-all duration-500 ease-out hover:-translate-y-[3px] hover:bg-[#E6E6E6] hover:shadow-[0_24px_64px_rgba(0,0,0,0.14)]"
+                >
                   <h4 className="mb-3 text-sm font-medium uppercase tracking-[0.15em]">
                     {value.title}
                   </h4>
@@ -300,7 +330,66 @@ const AboutPage = () => {
               ))}
             </Accordion>
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-12"
+          >
+            <h2 className="mb-10 text-sm uppercase tracking-[0.22em] text-black md:text-[15px]">
+              Galeria
+            </h2>
+            <div className="grid grid-cols-2 gap-5 md:grid-cols-3 md:gap-6">
+              {galleryImages.map((image, index) => (
+                <button
+                  type="button"
+                  key={image}
+                  className="group relative flex justify-center"
+                  onClick={() => setActiveGalleryImage(image)}
+                  aria-label={`Hap foton ${index + 1} të galerisë`}
+                >
+                  <div className="relative aspect-square w-[84%] overflow-hidden rounded-full bg-surface-light-fg/5 transition-all duration-700 ease-out group-hover:scale-[1.02] group-hover:bg-surface-light-fg/10 md:h-[220px] md:w-[220px] md:aspect-auto">
+                    <img
+                      src={image}
+                      alt={`Galeria THEMEL ${index + 1}`}
+                      className="h-full w-full object-cover grayscale transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                      loading="lazy"
+                    />
+                  </div>
+                </button>
+              ))}
+            </div>
+          </motion.div>
         </div>
+
+        {activeGalleryImage && (
+          <div
+            className="fixed inset-0 z-[120] flex items-center justify-center bg-black/80 px-6 py-10 backdrop-blur-sm"
+            onClick={() => setActiveGalleryImage(null)}
+          >
+            <button
+              type="button"
+              className="absolute right-6 top-6 text-xs uppercase tracking-[0.2em] text-white/80 transition-colors duration-300 hover:text-white"
+              onClick={() => setActiveGalleryImage(null)}
+              aria-label="Mbyll galerinë"
+            >
+              Mbyll
+            </button>
+
+            <div
+              className="max-h-full max-w-5xl overflow-hidden rounded-[28px] bg-white shadow-[0_24px_80px_rgba(0,0,0,0.35)]"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <img
+                src={activeGalleryImage}
+                alt="Galeria THEMEL"
+                className="max-h-[85vh] w-auto max-w-full object-contain"
+              />
+            </div>
+          </div>
+        )}
       </div>
     </Layout>
   );
