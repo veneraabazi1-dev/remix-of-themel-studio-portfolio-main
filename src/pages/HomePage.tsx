@@ -134,7 +134,7 @@ const HomePage = () => {
           ref={projectsRef}
           className="relative z-10 px-6 pb-28 pt-8 md:px-12 md:pb-36 md:pt-10"
         >
-          <div className="mx-auto grid max-w-7xl grid-cols-2 place-items-center gap-x-6 gap-y-10 md:grid-cols-4 md:gap-x-10 md:gap-y-6">
+          <div className="mx-auto grid max-w-7xl grid-cols-2 place-items-center gap-x-10 gap-y-14 md:grid-cols-4 md:gap-x-14 md:gap-y-10">
             {projects.map((project, i) => (
               <motion.div
                 key={project.slug}
@@ -142,6 +142,7 @@ const HomePage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.65, delay: i * 0.08 }}
+                className="group relative flex justify-center"
               >
                 <ProjectCircle
                   slug={project.slug}

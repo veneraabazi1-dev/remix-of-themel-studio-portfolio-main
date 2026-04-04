@@ -1,4 +1,4 @@
-import { useState, type CSSProperties } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useIsMobile } from "@/hooks/use-mobile";
 
@@ -12,9 +12,9 @@ interface ProjectCircleProps {
 }
 
 const sizeClasses = {
-  sm: "w-28 h-28 md:w-36 md:h-36",
-  md: "w-36 h-36 md:w-48 md:h-48",
-  lg: "w-44 h-44 md:w-56 md:h-56",
+  sm: "aspect-square w-28 md:w-36",
+  md: "aspect-square w-36 md:w-48",
+  lg: "aspect-square w-44 md:w-56",
 };
 
 const bgTones = [
@@ -45,11 +45,6 @@ const ProjectCircle = ({
       : size === "md"
         ? 192
         : 224;
-  const ringInnerDim = dim + (isMobile ? 22 : 28);
-  const ringOuterDim = dim + (isMobile ? 42 : 54);
-  const orbitInnerStyle = { "--orbit-start": "14deg" } as CSSProperties;
-  const orbitOuterStyle = { "--orbit-start": "-22deg" } as CSSProperties;
-
   return (
     <Link
       to={`/projekt/${slug}`}
@@ -58,64 +53,43 @@ const ProjectCircle = ({
       onMouseLeave={() => setHovered(false)}
     >
       <div className="relative flex items-center justify-center">
-        <div
-          className={`absolute transition-all duration-700 ${
-            hovered
-              ? "orbit-arc-reverse opacity-80 scale-[1.01]"
-              : "opacity-40 scale-[0.992]"
-          }`}
-          style={{
-            ...orbitOuterStyle,
-            transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",
-          }}
-        >
-          <svg
-            width={ringOuterDim}
-            height={ringOuterDim}
-            viewBox={`0 0 ${ringOuterDim} ${ringOuterDim}`}
-          >
-            <circle
-              cx={ringOuterDim / 2}
-              cy={ringOuterDim / 2}
-              r={ringOuterDim / 2 - 2}
-              fill="none"
-              stroke="rgba(255,255,255,0.18)"
-              strokeWidth="0.95"
-              strokeDasharray="30 20"
-              strokeDashoffset="10"
-              strokeLinecap="round"
-            />
-          </svg>
-        </div>
-
-        <div
-          className={`absolute transition-all duration-700 ${
-            hovered
-              ? "orbit-arc-forward opacity-95 scale-[1.02]"
-              : "opacity-55 scale-100"
-          }`}
-          style={{
-            ...orbitInnerStyle,
-            transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",
-          }}
-        >
-          <svg
-            width={ringInnerDim}
-            height={ringInnerDim}
-            viewBox={`0 0 ${ringInnerDim} ${ringInnerDim}`}
-          >
-            <circle
-              cx={ringInnerDim / 2}
-              cy={ringInnerDim / 2}
-              r={ringInnerDim / 2 - 2}
-              fill="none"
-              stroke="rgba(255,255,255,0.14)"
-              strokeWidth="0.8"
-              strokeDasharray="18 16"
-              strokeDashoffset="4"
-              strokeLinecap="round"
-            />
-          </svg>
+        <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+          <div
+            className={`absolute h-[86%] w-[86%] rounded-full border transition-all duration-700 ease-out ${
+              hovered ? "scale-[1.01]" : "scale-100"
+            }`}
+            style={{ borderColor: "rgba(17, 17, 17, 0.18)" }}
+          />
+          <div
+            className={`h-[96%] w-[96%] rounded-full border transition-all duration-700 ease-out ${
+              hovered ? "scale-[1.02]" : "scale-100"
+            }`}
+            style={{ borderColor: "rgba(17, 17, 17, 0.26)" }}
+          />
+          <div
+            className={`absolute h-[106%] w-[106%] rounded-full border transition-all duration-700 ease-out ${
+              hovered ? "scale-[1.035]" : "scale-100"
+            }`}
+            style={{ borderColor: "rgba(17, 17, 17, 0.2)" }}
+          />
+          <div
+            className={`absolute h-[116%] w-[116%] rounded-full border transition-all duration-700 ease-out ${
+              hovered ? "scale-[1.05] opacity-100" : "scale-100 opacity-70"
+            }`}
+            style={{ borderColor: "rgba(17, 17, 17, 0.16)" }}
+          />
+          <div
+            className={`absolute h-[126%] w-[126%] rounded-full border opacity-0 transition-all duration-700 ease-out ${
+              hovered ? "scale-[1.065] opacity-100" : "scale-100 opacity-0"
+            }`}
+            style={{ borderColor: "rgba(17, 17, 17, 0.12)" }}
+          />
+          <div
+            className={`absolute h-[136%] w-[136%] rounded-full border opacity-0 transition-all duration-700 ease-out ${
+              hovered ? "scale-[1.08] opacity-100" : "scale-100 opacity-0"
+            }`}
+            style={{ borderColor: "rgba(17, 17, 17, 0.1)" }}
+          />
         </div>
 
         <div
@@ -135,12 +109,6 @@ const ProjectCircle = ({
           ) : null}
 
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_28%_28%,rgba(255,255,255,0.2),transparent_40%),radial-gradient(circle_at_72%_72%,rgba(255,255,255,0.06),transparent_38%)]" />
-
-          <div
-            className={`absolute inset-[13%] rounded-full border border-white/12 transition-all duration-700 ease-out ${
-              hovered ? "scale-[1.05] opacity-85" : "scale-100 opacity-50"
-            }`}
-          />
         </div>
       </div>
 

@@ -39,7 +39,7 @@ export const projects: Project[] = [
     area: "90 m²",
     program: "Rezidence banimi",
     description:
-      "Projekt rezidencial i konceptuar mbi perdorimin e struktures se drurit si element kryesor arkitektonik. Arkitektura krijon nje lidhje te drejtperdrejte mes hapesires se brendshme dhe ambientit natyror perreth, duke formuar nje rezidence te qete dhe te ndricuar natyrshem.",
+      "Objekti i banimit i konceptuar mbi perdorimin e struktures se drurit si element kryesor arkitektonik. Arkitektura krijon nje lidhje te drejtperdrejte mes hapesires se brendshme dhe ambientit natyror perreth, duke formuar nje rezidence te qete dhe te ndricuar natyrshem.",
     concept:
       "Koncepti i projektit bazohet ne ekspozimin e struktures se drurit si element identitar te arkitektures. Elementet konstruktive behen pjese e kompozimit hapesinor dhe krijojne nje gjuhe te qarte dhe te paster arkitektonike.",
     design:

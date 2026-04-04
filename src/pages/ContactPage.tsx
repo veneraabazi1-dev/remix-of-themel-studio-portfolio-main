@@ -72,7 +72,7 @@ const ContactPage = () => {
             className="mb-16 max-w-xl text-justify text-sm leading-relaxed text-surface-light-fg/55 md:text-base"
           >
             Na kontaktoni per cdo pyetje rreth projekteve, bashkepunimeve ose
-            sherbimeve tona. Do t&apos;ju pergjigjemi sa me shpejt.
+            sherbimeve tona.
           </motion.p>
 
           <motion.div
@@ -116,7 +116,7 @@ const ContactPage = () => {
                  <iframe
                     title="32 Egnatia, Prishtinë"
                     src="https://www.google.com/maps?hl=sq&gl=xk&q=32+Egnatia,+Prishtinë&z=17&output=embed"
-                    className="h-[320px] w-full"
+                    className="h-[320px] w-full grayscale contrast-125 brightness-95"
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                   />

@@ -150,22 +150,22 @@ const ProjectPage = () => {
             transition={{ duration: 0.6 }}
             className="mb-20"
           >
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-5">
               {galleryImages.map((image, i) => (
                 <button
                   key={i}
                   onClick={() => openLightbox(i)}
                   className="group relative flex justify-center"
                 >
-                  <div className="relative flex h-[190px] w-[190px] items-center justify-center md:h-[260px] md:w-[260px]">
+                  <div className="relative flex aspect-square w-full max-w-[190px] items-center justify-center md:h-[260px] md:w-[260px] md:max-w-none">
                     <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-                      <div className="h-[92%] w-[92%] rounded-full border transition-all duration-700 ease-out group-hover:scale-[1.03]" style={{ borderColor: "rgba(128, 128, 128, 0.32)" }} />
-                      <div className="absolute h-[108%] w-[108%] rounded-full border transition-all duration-700 ease-out group-hover:scale-[1.05]" style={{ borderColor: "rgba(128, 128, 128, 0.26)" }} />
-                      <div className="absolute h-[124%] w-[124%] rounded-full border opacity-0 transition-all duration-700 ease-out group-hover:scale-[1.07] group-hover:opacity-100" style={{ borderColor: "rgba(128, 128, 128, 0.22)" }} />
-                      <div className="absolute h-[140%] w-[140%] rounded-full border opacity-0 transition-all duration-700 ease-out group-hover:scale-[1.09] group-hover:opacity-100" style={{ borderColor: "rgba(128, 128, 128, 0.18)" }} />
+                      <div className="h-[96%] w-[96%] rounded-full border transition-all duration-700 ease-out group-hover:scale-[1.02]" style={{ borderColor: "rgba(128, 128, 128, 0.32)" }} />
+                      <div className="absolute h-[106%] w-[106%] rounded-full border transition-all duration-700 ease-out group-hover:scale-[1.035]" style={{ borderColor: "rgba(128, 128, 128, 0.26)" }} />
+                      <div className="absolute h-[116%] w-[116%] rounded-full border opacity-0 transition-all duration-700 ease-out group-hover:scale-[1.05] group-hover:opacity-100" style={{ borderColor: "rgba(128, 128, 128, 0.22)" }} />
+                      <div className="absolute h-[126%] w-[126%] rounded-full border opacity-0 transition-all duration-700 ease-out group-hover:scale-[1.065] group-hover:opacity-100" style={{ borderColor: "rgba(128, 128, 128, 0.18)" }} />
                     </div>
 
-                    <div className="relative h-[160px] w-[160px] overflow-hidden rounded-full bg-surface-light-fg/5 transition-all duration-700 ease-out group-hover:scale-[1.02] group-hover:bg-surface-light-fg/10 md:h-[220px] md:w-[220px]">
+                    <div className="relative aspect-square w-[84%] overflow-hidden rounded-full bg-surface-light-fg/5 transition-all duration-700 ease-out group-hover:scale-[1.02] group-hover:bg-surface-light-fg/10 md:h-[220px] md:w-[220px] md:aspect-auto">
                       <img
                         src={image.src}
                         alt={image.label}
@@ -197,7 +197,7 @@ const ProjectPage = () => {
             ].map((section) => (
               <div
                 key={section.title}
-                className="flex h-full rounded-[24px] bg-[#ECECEC] px-12 py-7 text-left shadow-[0_18px_48px_rgba(0,0,0,0.09)] ring-1 ring-black/[0.05] transition-all duration-500 ease-out hover:-translate-y-[3px] hover:bg-[#E6E6E6] hover:shadow-[0_24px_64px_rgba(0,0,0,0.14)] md:px-12 md:py-8"
+                className="flex h-full rounded-t-[24px] bg-[#ECECEC] px-12 py-7 text-left shadow-[0_18px_48px_rgba(0,0,0,0.09)] ring-1 ring-black/[0.05] transition-all duration-500 ease-out hover:-translate-y-[3px] hover:bg-[#E6E6E6] hover:shadow-[0_24px_64px_rgba(0,0,0,0.14)] md:px-12 md:py-8"
               >
                 <div>
                   <h3
