@@ -11,24 +11,29 @@ const menuLinks = [
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const handleGoHome = () => {
+    setOpen(false);
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  };
 
   return (
     <>
-      <nav className="absolute top-0 left-0 w-full z-50 px-6 md:px- py-3 flex items-center justify-between">
+      <nav className="absolute left-0 top-0 z-50 flex w-full items-center justify-between px-6 py-2.5 md:px-12">
         <Link
           to="/"
-          className="inline-flex h-16 items-center md:h-14"
+          className="inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-full md:h-14 md:w-14"
           aria-label="THEMEL"
+          onClick={handleGoHome}
         >
           <img
-            src="/11.png"
+            src="/THEMEL_LOGOpng.png"
             alt="THEMEL"
-            className="block h-full w-auto object-contain"
+            className="block h-full w-full object-cover"
           />
         </Link>
         <button
           onClick={() => setOpen(true)}
-          className="flex flex-col gap-[5px] group"
+          className="group flex flex-col gap-[5px]"
           aria-label="Open menu"
         >
           <span className="block w-7 h-[1.5px] bg-foreground transition-all group-hover:w-5" />
@@ -80,7 +85,12 @@ const Navbar = () => {
                   >
                     <Link
                       to={link.to}
-                      onClick={() => setOpen(false)}
+                      onClick={() => {
+                        setOpen(false);
+                        if (link.to === "/") {
+                          window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                        }
+                      }}
                       className="text-foreground text-xs md:text-sm tracking-[0.3em] uppercase font-body hover:scale-110 transition-transform inline-block"
                       style={{ fontWeight: 600 }}
                     >

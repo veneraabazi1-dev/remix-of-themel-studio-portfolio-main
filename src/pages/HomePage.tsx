@@ -9,7 +9,7 @@ const homeProjectImages: Record<string, string> = {
   "strukture-druri": "/images/enveri_foto_1.jpg",
   "fasade-urbane": "/images/dona_foto/1.jpg",
   "berthame-teknike": "/images/toka/foto1.jpeg",
-  "venus-house": "/images/venus/989898.jpeg",
+  "venus-house": "/images/ig-apartment/PROJEKTI/1.jpeg",
 };
 
 const HomePage = () => {

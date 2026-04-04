@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
+import Lightbox from "@/components/Lightbox";
 import {
   Accordion,
   AccordionContent,
@@ -30,23 +31,23 @@ const timeline = [
 
 const team = [
   { name: "Ilir Mecini", role: "Drejtues i projekteve", image: "/images/team/iliri.jpeg" },
-  { name: "Blerta Abazi", role: "Arkitekte / Dizajnere e interierit", image: "/images/team/blerta.jpeg" },
-  { name: "Elvira Abazi", role: "Arkitekte / Dizajnere e interierit", image: "/images/team/elvira.jpeg" },
+  { name: "Blerta Abazi", role: "Arkitekte / Dizajnere interieri", image: "/images/team/blerta.jpeg" },
+  { name: "Elvira Abazi", role: "Arkitekte / Dizajnere interieri", image: "/images/team/elvira.jpeg" },
   { name: "Lavdim Zabeli", role: "Inxhinier i statikes", image: "/images/team/lavdimi.jpeg" },
 ];
 
 const values = [
   {
     title: "Cilesia",
-    text: "Cdo detaj ka rendesi. Ne angazhohemi te mos bejme kompromise me standardet me te larta te punes.",
+    text: "Çdo detaj ka rëndësi. Ne angazhohemi të mos bëjmë asnjë kompromis me standardet më të larta të punës.",
   },
   {
     title: "Transparenca",
-    text: "Komunikim i hapur dhe i qarte ne cdo faze te projektit, per te siguruar nje proces bashkepunimi te besueshem dhe te strukturuar.",
+    text: "Komunikim i hapur dhe i qartë në çdo fazë të projektit, për të siguruar një proces bashkëpunimi të besueshëm dhe të strukturuar.",
   },
   {
     title: "Inovacioni",
-    text: "Zgjidhje kreative dhe bashkekohore per sfida te ndryshme ndertimore dhe arkitekturore, duke sjelle vlera te qendrueshme per hapesirat qe realizojme.",
+    text: "Zgjidhje kreative dhe bashkëkohore për sfida të ndryshme ndërtimore dhe arkitekturore, duke sjellë vlera të qëndrueshme për hapësirat që realizojmë.",
   },
 ];
 
@@ -95,7 +96,8 @@ const galleryImages = [
 
 const AboutPage = () => {
   const location = useLocation();
-  const [activeGalleryImage, setActiveGalleryImage] = useState<string | null>(null);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
 
   useEffect(() => {
     if (location.hash === "#sherbimet") {
@@ -108,12 +110,16 @@ const AboutPage = () => {
   return (
     <Layout>
       <div className="min-h-screen bg-surface-light text-surface-light-fg">
-        <div className="mx-auto max-w-6xl px-6 py-16 md:px-12 md:py-24">
+        <div
+          className="mx-auto max-w-6xl px-6 py-16 md:px-12 md:py-24"
+          style={{ fontFamily: '"Inter", sans-serif' }}
+        >
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="mb-16 text-3xl font-bold uppercase tracking-[0.2em] md:text-5xl"
+            style={{ fontFamily: '"ISOCT2", serif', fontWeight: 700 }}
           >
             Rreth Nesh
           </motion.h1>
@@ -124,30 +130,29 @@ const AboutPage = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="mx-auto my-24 rounded-[36px] bg-[#ECECEC] px-8 py-8 shadow-[0_18px_48px_rgba(0,0,0,0.09)] ring-1 ring-black/[0.05] transition-all duration-500 ease-out hover:-translate-y-[2px] hover:bg-[#E6E6E6] hover:shadow-[0_24px_64px_rgba(0,0,0,0.12)] md:px-10 md:py-10"
           >
-            <h2 className="mb-6 text-sm uppercase tracking-[0.22em] text-black md:text-[15px]">
+            <h2
+              className="mb-6 text-sm uppercase tracking-[0.22em] text-black md:text-[15px]"
+              style={{ fontFamily: '"ISOCT2", serif', fontWeight: 700 }}
+            >
               THEMEL - Projektim, Dizajn, Renovim dhe Rindertim
             </h2>
-           <p className="mb-4 text-justify text-sm leading-relaxed text-surface-light-fg/65 md:text-base">
-              THEMEL është një studio e fokusuar në projektim, dizajn, renovim
-              dhe rindërtim të hapësirave. E ndërtuar mbi përvojën dhe
-              praktikat profesionale të kompanisë Mecini Bau në Gjermani që
-              nga viti 2005, studio sjell në Kosovë një qasje të strukturuar
-              dhe profesionale në zhvillimin dhe realizimin e projekteve
-              ndërtimore.
+            <p className="mb-4 text-justify text-sm leading-relaxed text-surface-light-fg/65 md:text-base">
+              THEMEL eshte nje studio e fokusuar ne projektim, dizajn, renovim dhe rindertim te
+              hapesirave. E ndertuar mbi pervojen dhe praktikat profesionale te kompanise Mecini Bau ne
+              Gjermani qe nga viti 2005, studio sjell ne Kosove nje qasje te strukturuar dhe profesionale
+              ne zhvillimin dhe realizimin e projekteve ndertimore.
             </p>
 
             <p className="mb-4 text-justify text-sm leading-relaxed text-surface-light-fg/65 md:text-base">
-              Procesi ynë i punës përfshin të gjitha fazat e projektit nga
-              konceptimi, projektimi dhe dizajni, deri te renovimi dhe
-              realizimi i plotë i punimeve, duke garantuar cilësi të lartë,
-              funksionalitet dhe standarde bashkëkohore ndërtimore.
+              Procesi yne i punes perfshin te gjitha fazat e projektit nga konceptimi, projektimi dhe
+              dizajni, deri te renovimi dhe realizimi i plote i punimeve, duke garantuar cilesi te
+              larte, funksionalitet dhe standarde bashkekohore ndertimore.
             </p>
 
             <p className="text-justify text-sm leading-relaxed text-surface-light-fg/65 md:text-base">
-              Në bashkëpunim të ngushtë me klientët, synojmë të krijojmë
-              hapësira të menduara me kujdes në çdo detaj, të cilat i
-              përgjigjen në mënyrë të qëndrueshme nevojave moderne të jetesës
-              dhe të punës.
+              Ne bashkepunim te ngushte me klientet, synojme te krijojme hapesira te menduara me kujdes
+              ne cdo detaj, te cilat i pergjigjen ne menyre te qendrueshme nevojave moderne te jeteses
+              dhe te punes.
             </p>
           </motion.div>
 
@@ -159,41 +164,38 @@ const AboutPage = () => {
               transition={{ duration: 0.6 }}
               className="rounded-[36px] bg-[#ECECEC] px-8 py-8 shadow-[0_18px_48px_rgba(0,0,0,0.09)] ring-1 ring-black/[0.05] transition-all duration-500 ease-out hover:-translate-y-[2px] hover:bg-[#E6E6E6] hover:shadow-[0_24px_64px_rgba(0,0,0,0.12)] md:px-10 md:py-10"
             >
-              <h2 className="mb-6 text-sm uppercase tracking-[0.22em] text-black md:text-[15px]">
+              <h2
+                className="mb-6 text-sm uppercase tracking-[0.22em] text-black md:text-[15px]"
+                style={{ fontFamily: '"ISOCT2", serif', fontWeight: 700 }}
+              >
                 Historiku
               </h2>
               <p className="mb-4 text-justify text-sm leading-relaxed text-surface-light-fg/65 md:text-base">
-                Transformimi dhe përmirësimi i hapësirave të ndërtuara kërkon
-                ekspertizë profesionale, standarde të larta teknike dhe një
-                qasje të strukturuar në çdo fazë të projektit. Në Kosovë, një
-                pjesë e konsiderueshme e objekteve u ndërtuan në periudhën pas
-                luftës në kushte zhvillimi të shpejtë dhe shpesh pa planifikim
-                të plotë teknik. Sot, shumë prej këtyre objekteve kërkojnë
-                ndërhyrje profesionale në renovim dhe rindërtim për të
-                përmbushur standardet bashkëkohore të cilësisë, sigurisë dhe
-                funksionalitetit. Në mënyrë të natyrshme, edhe objektet e
-                ndërtuara në kushte të rregullta kërkojnë rinovim pas një
-                periudhe prej rreth 20–25 vitesh, për t'u përshtatur me
-                kërkesat moderne të ndërtimit dhe përdorimit.
+                Transformimi dhe permiresimi i hapesirave te ndertuara kerkon ekspertize profesionale,
+                standarde te larta teknike dhe nje qasje te strukturuar ne cdo faze te projektit. Ne
+                Kosove, nje pjese e konsiderueshme e objekteve u ndertuan ne periudhen pas luftes ne
+                kushte zhvillimi te shpejte dhe shpesh pa planifikim te plote teknik. Sot, shume prej
+                ketyre objekteve kerkojne nderhyrje profesionale ne renovim dhe rindertim per te
+                permbushur standardet bashkekohore te cilesise, sigurise dhe funksionalitetit. Ne menyre
+                te natyrshme, edhe objektet e ndertuara ne kushte te rregullta kerkojne rinovim pas nje
+                periudhe prej rreth 20-25 vitesh, per t'u pershtatur me kerkesat moderne te ndertimit dhe
+                perdorimit.
               </p>
               <p className="mb-4 text-justify text-sm leading-relaxed text-surface-light-fg/65 md:text-base">
-              THEMEL mbështetet në përvojën dhe traditën profesionale të
-              kompanisë Mecini Bau, e themeluar në Gjermani në vitin 2005.
-              Kjo përvojë sjell në Kosovë një qasje të disiplinuar dhe të
-              bazuar në standarde evropiane në fushën e renovimit dhe
-              ndërtimit të thatë. Me certifikim nga Knauf Akademie – Iphofen,
-              ofrojmë zgjidhje të avancuara teknike që përfshijnë sisteme të
-              mureve dhe tavaneve akustike, sisteme të mbrojtjes kundër
-              zjarrit, si dhe zgjidhje të tjera profesionale që rrisin
-              sigurinë, funksionalitetin dhe cilësinë e hapësirave
+                THEMEL mbeshtetet ne pervojen dhe traditen profesionale te kompanise Mecini Bau, e
+                themeluar ne Gjermani ne vitin 2005. Kjo pervoje sjell ne Kosove nje qasje te
+                disiplinuar dhe te bazuar ne standarde evropiane ne fushen e renovimit dhe ndertimit te
+                thate. Me certifikim nga Knauf Akademie - Iphofen, ofrojme zgjidhje te avancuara teknike
+                qe perfshijne sisteme te mureve dhe tavaneve akustike, sisteme te mbrojtjes kunder
+                zjarrit, si dhe zgjidhje te tjera profesionale qe rrisin sigurine, funksionalitetin dhe
+                cilesine e hapesirave.
               </p>
               <p className="text-justify text-sm leading-relaxed text-surface-light-fg/65 md:text-base">
-                 Angazhimi ynë është të realizojmë projekte me standarde të
-                larta profesionale, duke ofruar një proces të integruar që
-                përfshin analizën e nevojave, planifikimin, projektimin dhe
-                realizimin e plotë të punimeve. Përmes këtij procesi, THEMEL
-                synon të kontribuojë në zhvillimin e hapësirave ndërtimore më
-                cilësore, funksionale dhe të qëndrueshme.
+                Angazhimi yne eshte te realizojme projekte me standarde te larta profesionale, duke
+                ofruar nje proces te integruar qe perfshin analizen e nevojave, planifikimin,
+                projektimin dhe realizimin e plote te punimeve. Permes ketij procesi, THEMEL synon te
+                kontribuoje ne zhvillimin e hapesirave ndertimore me cilesore, funksionale dhe te
+                qendrueshme.
               </p>
             </motion.div>
 
@@ -204,7 +206,10 @@ const AboutPage = () => {
               transition={{ duration: 0.75, ease: "easeOut" }}
               className="rounded-[36px] bg-[#ECECEC] px-8 py-8 shadow-[0_18px_48px_rgba(0,0,0,0.09)] ring-1 ring-black/[0.05] transition-all duration-500 ease-out hover:-translate-y-[2px] hover:bg-[#E6E6E6] hover:shadow-[0_24px_64px_rgba(0,0,0,0.12)] md:px-10 md:py-10"
             >
-              <h2 className="mb-8 text-sm uppercase tracking-[0.22em] text-black md:text-[15px]">
+              <h2
+                className="mb-8 text-sm uppercase tracking-[0.22em] text-black md:text-[15px]"
+                style={{ fontFamily: '"ISOCT2", serif', fontWeight: 700 }}
+              >
                 Rrjedha nder vite
               </h2>
 
@@ -225,10 +230,16 @@ const AboutPage = () => {
                       <span className="absolute left-[-20px] top-[15px] h-px w-12 bg-black/14" />
 
                       <div className="space-y-2">
-                        <p className="text-[18px] font-semibold tracking-[0.08em] text-black/80">
+                        <p
+                          className="text-[18px] font-semibold tracking-[0.08em] text-black/80"
+                          style={{ fontFamily: '"ISOCT2", serif', fontWeight: 700 }}
+                        >
                           {item.year}
                         </p>
-                        <h3 className="max-w-[320px] text-sm leading-7 text-black/60">
+                        <h3
+                          className="max-w-[320px] text-sm leading-7 text-surface-light-fg/65"
+                          style={{ fontFamily: '"Inter", sans-serif' }}
+                        >
                           {item.title}
                         </h3>
                       </div>
@@ -246,7 +257,10 @@ const AboutPage = () => {
             transition={{ duration: 0.6 }}
             className="mb-20"
           >
-            <h2 className="mb-10 text-sm uppercase tracking-[0.22em] text-black md:text-[15px]">
+            <h2
+              className="mb-10 text-sm uppercase tracking-[0.22em] text-black md:text-[15px]"
+              style={{ fontFamily: '"ISOCT2", serif', fontWeight: 700 }}
+            >
               Ekipi Yne
             </h2>
             <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
@@ -263,15 +277,12 @@ const AboutPage = () => {
                     />
                   </div>
                   <h4
-                    className="mb-2 text-[15px] tracking-[0.04em] text-surface-light-fg md:text-[17px]"
+                    className="mb-2 text-[14px] tracking-[0.04em] text-surface-light-fg md:text-[16px]"
                     style={{ fontFamily: '"ISOCT2", serif', fontWeight: 600 }}
                   >
                     {member.name}
                   </h4>
-                  <p
-                    className="mx-auto max-w-[180px] text-center text-[12px] leading-5 text-surface-light-fg/45 md:text-[13px]"
-                    style={{ fontFamily: '"ISOCT2", serif' }}
-                  >
+                  <p className="mx-auto max-w-[180px] text-center text-[12px] leading-5 text-surface-light-fg/45 md:text-[13px]">
                     {member.role}
                   </p>
                 </div>
@@ -286,7 +297,10 @@ const AboutPage = () => {
             transition={{ duration: 0.6 }}
             className="mb-20"
           >
-            <h2 className="mb-10 text-sm uppercase tracking-[0.22em] text-black md:text-[15px]">
+            <h2
+              className="mb-10 text-sm uppercase tracking-[0.22em] text-black md:text-[15px]"
+              style={{ fontFamily: '"ISOCT2", serif', fontWeight: 700 }}
+            >
               Vlerat Tona
             </h2>
             <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
@@ -295,7 +309,10 @@ const AboutPage = () => {
                   key={value.title}
                   className="rounded-[32px] bg-[#ECECEC] px-8 py-8 shadow-[0_18px_48px_rgba(0,0,0,0.09)] ring-1 ring-black/[0.05] transition-all duration-500 ease-out hover:-translate-y-[3px] hover:bg-[#E6E6E6] hover:shadow-[0_24px_64px_rgba(0,0,0,0.14)]"
                 >
-                  <h4 className="mb-3 text-sm font-medium uppercase tracking-[0.15em]">
+                  <h4
+                    className="mb-3 text-sm font-medium uppercase tracking-[0.15em]"
+                    style={{ fontFamily: '"ISOCT2", serif', fontWeight: 700 }}
+                  >
                     {value.title}
                   </h4>
                   <p className="text-justify text-sm leading-relaxed text-surface-light-fg/55">
@@ -307,7 +324,10 @@ const AboutPage = () => {
           </motion.div>
 
           <div id="sherbimet" className="mb-12">
-            <h2 className="mb-10 text-sm uppercase tracking-[0.22em] text-black md:text-[15px]">
+            <h2
+              className="mb-10 text-sm uppercase tracking-[0.22em] text-black md:text-[15px]"
+              style={{ fontFamily: '"ISOCT2", serif', fontWeight: 700 }}
+            >
               Sherbimet
             </h2>
             <Accordion type="single" collapsible className="w-full">
@@ -317,13 +337,13 @@ const AboutPage = () => {
                   value={`service-${index}`}
                   className="border-surface-light-fg/8"
                 >
-                  <AccordionTrigger className="py-5 text-sm font-medium uppercase tracking-[0.1em] text-surface-light-fg/70 transition-colors hover:text-surface-light-fg hover:no-underline">
+                  <AccordionTrigger
+                    className="py-5 text-sm font-medium uppercase tracking-[0.1em] text-surface-light-fg/70 transition-colors hover:text-surface-light-fg hover:no-underline"
+                    style={{ fontFamily: '"ISOCT2", serif', fontWeight: 700 }}
+                  >
                     {service.title}
                   </AccordionTrigger>
-                  <AccordionContent
-                    className="pb-6 text-justify text-[15px] leading-8 text-surface-light-fg/55 md:text-[17px]"
-                    style={{ fontFamily: '"ISOCT2", serif' }}
-                  >
+                  <AccordionContent className="pb-6 text-justify text-[15px] leading-8 text-surface-light-fg/55 md:text-[17px]">
                     {service.desc}
                   </AccordionContent>
                 </AccordionItem>
@@ -338,7 +358,10 @@ const AboutPage = () => {
             transition={{ duration: 0.6 }}
             className="mb-12"
           >
-            <h2 className="mb-10 text-sm uppercase tracking-[0.22em] text-black md:text-[15px]">
+            <h2
+              className="mb-10 text-sm uppercase tracking-[0.22em] text-black md:text-[15px]"
+              style={{ fontFamily: '"ISOCT2", serif', fontWeight: 700 }}
+            >
               Galeria
             </h2>
             <div className="grid grid-cols-2 gap-5 md:grid-cols-3 md:gap-6">
@@ -347,50 +370,68 @@ const AboutPage = () => {
                   type="button"
                   key={image}
                   className="group relative flex justify-center"
-                  onClick={() => setActiveGalleryImage(image)}
-                  aria-label={`Hap foton ${index + 1} të galerisë`}
+                  onClick={() => {
+                    setLightboxIndex(index);
+                    setLightboxOpen(true);
+                  }}
+                  aria-label={`Hap foton ${index + 1} te galerise`}
                 >
-                  <div className="relative aspect-square w-[84%] overflow-hidden rounded-full bg-surface-light-fg/5 transition-all duration-700 ease-out group-hover:scale-[1.02] group-hover:bg-surface-light-fg/10 md:h-[220px] md:w-[220px] md:aspect-auto">
-                    <img
-                      src={image}
-                      alt={`Galeria THEMEL ${index + 1}`}
-                      className="h-full w-full object-cover grayscale transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-                      loading="lazy"
-                    />
+                  <div className="relative flex aspect-square w-full max-w-[190px] items-center justify-center md:h-[260px] md:w-[260px] md:max-w-none">
+                    <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+                      <div
+                        className="absolute h-[86%] w-[86%] rounded-full border transition-all duration-700 ease-out group-hover:scale-[1.01]"
+                        style={{ borderColor: "rgba(17, 17, 17, 0.18)" }}
+                      />
+                      <div
+                        className="h-[96%] w-[96%] rounded-full border transition-all duration-700 ease-out group-hover:scale-[1.02]"
+                        style={{ borderColor: "rgba(17, 17, 17, 0.26)" }}
+                      />
+                      <div
+                        className="absolute h-[106%] w-[106%] rounded-full border transition-all duration-700 ease-out group-hover:scale-[1.035]"
+                        style={{ borderColor: "rgba(17, 17, 17, 0.2)" }}
+                      />
+                      <div
+                        className="absolute h-[116%] w-[116%] rounded-full border opacity-70 transition-all duration-700 ease-out group-hover:scale-[1.05] group-hover:opacity-100"
+                        style={{ borderColor: "rgba(17, 17, 17, 0.16)" }}
+                      />
+                      <div
+                        className="absolute h-[126%] w-[126%] rounded-full border opacity-0 transition-all duration-700 ease-out group-hover:scale-[1.065] group-hover:opacity-100"
+                        style={{ borderColor: "rgba(17, 17, 17, 0.12)" }}
+                      />
+                      <div
+                        className="absolute h-[136%] w-[136%] rounded-full border opacity-0 transition-all duration-700 ease-out group-hover:scale-[1.08] group-hover:opacity-100"
+                        style={{ borderColor: "rgba(17, 17, 17, 0.1)" }}
+                      />
+                    </div>
+
+                    <div className="relative aspect-square w-[84%] overflow-hidden rounded-full bg-surface-light-fg/5 transition-all duration-700 ease-out group-hover:scale-[1.02] group-hover:bg-surface-light-fg/10 md:h-[220px] md:w-[220px] md:aspect-auto">
+                      <img
+                        src={image}
+                        alt={`Galeria THEMEL ${index + 1}`}
+                        className="absolute inset-0 h-full w-full object-cover grayscale transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                        loading="lazy"
+                      />
+                    </div>
                   </div>
                 </button>
               ))}
             </div>
           </motion.div>
         </div>
-
-        {activeGalleryImage && (
-          <div
-            className="fixed inset-0 z-[120] flex items-center justify-center bg-black/80 px-6 py-10 backdrop-blur-sm"
-            onClick={() => setActiveGalleryImage(null)}
-          >
-            <button
-              type="button"
-              className="absolute right-6 top-6 text-xs uppercase tracking-[0.2em] text-white/80 transition-colors duration-300 hover:text-white"
-              onClick={() => setActiveGalleryImage(null)}
-              aria-label="Mbyll galerinë"
-            >
-              Mbyll
-            </button>
-
-            <div
-              className="max-h-full max-w-5xl overflow-hidden rounded-[28px] bg-white shadow-[0_24px_80px_rgba(0,0,0,0.35)]"
-              onClick={(event) => event.stopPropagation()}
-            >
-              <img
-                src={activeGalleryImage}
-                alt="Galeria THEMEL"
-                className="max-h-[85vh] w-auto max-w-full object-contain"
-              />
-            </div>
-          </div>
-        )}
       </div>
+
+      <Lightbox
+        images={galleryImages}
+        currentIndex={lightboxIndex}
+        open={lightboxOpen}
+        onClose={() => setLightboxOpen(false)}
+        onNext={() =>
+          setLightboxIndex((prev) => (prev < galleryImages.length - 1 ? prev + 1 : 0))
+        }
+        onPrev={() =>
+          setLightboxIndex((prev) => (prev > 0 ? prev - 1 : galleryImages.length - 1))
+        }
+      />
     </Layout>
   );
 };

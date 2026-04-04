@@ -23,14 +23,11 @@ const tokaImageSet = [
   "/images/toka/WhatsApp Image 2026-02-19 at 23.0.jpeg",
 ];
 const venusImageSet = [
-  "/images/venus/1212.jpeg",
-  "/images/venus/212.jpeg",
-  "/images/venus/33.jpeg",
-  "/images/venus/424242646ge 2026-02-19 at 23.07.52.jpeg",
-  "/images/venus/46455552.jpeg",
-  "/images/venus/764764.jpeg",
-  "/images/venus/877.jpeg",
-  "/images/venus/989898.jpeg",
+  "/images/ig-apartment/PROJEKTI/1.jpeg",
+  "/images/ig-apartment/PROJEKTI/2.jpeg",
+  "/images/ig-apartment/PROJEKTI/3.jpeg",
+  "/images/ig-apartment/PROJEKTI/4.jpeg",
+  "/images/ig-apartment/PROJEKTI/5.jpeg",
 ];
 
 const galleryBySlug: Record<string, string[]> = {
@@ -119,7 +116,7 @@ const ProjectPage = () => {
           >
             <p
               className="text-justify text-[15px] leading-8 text-surface-light-fg/70 md:text-[17px]"
-              style={{ fontFamily: '"ISOCT2", serif' }}
+              style={{ fontFamily: '"Inter", sans-serif' }}
             >
               {project.description}
             </p>
@@ -133,10 +130,18 @@ const ProjectPage = () => {
                       : ""
                   }`}
                 >
-                  <span className="text-surface-light-fg/40 tracking-wide uppercase text-xs">
+                  <span
+                    className="text-surface-light-fg/40 tracking-wide uppercase text-xs"
+                    style={{ fontFamily: '"Inter", sans-serif' }}
+                  >
                     {m.label}
                   </span>
-                  <span className="text-surface-light-fg/80">{m.value}</span>
+                  <span
+                    className="text-surface-light-fg/80"
+                    style={{ fontFamily: '"Inter", sans-serif' }}
+                  >
+                    {m.value}
+                  </span>
                 </div>
               ))}
             </div>

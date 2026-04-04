@@ -2,12 +2,10 @@ import { useEffect, useState } from "react";
 
 const CustomCursor = () => {
   const [pos, setPos] = useState({ x: -100, y: -100 });
-  const [expanded, setExpanded] = useState(false);
   const [visible, setVisible] = useState(false);
-  const [textHover, setTextHover] = useState(false);
+  const [expanded, setExpanded] = useState(false);
 
   useEffect(() => {
-    // Only show on non-touch devices
     const isTouchDevice = "ontouchstart" in window;
     if (isTouchDevice) return;
 
@@ -20,28 +18,22 @@ const CustomCursor = () => {
     const handleOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       const textTarget = target.closest("[data-cursor-text]") as HTMLElement | null;
-
-      setTextHover(Boolean(textTarget));
+      const textLikeTarget = target.closest("p, span, h1, h2, h3, h4, h5, h6, a, button, li, label") as HTMLElement | null;
 
       if (
         target.closest("a") ||
         target.closest("button") ||
+        target.closest("input") ||
+        target.closest("textarea") ||
         Boolean(textTarget) ||
-        target.tagName === "H1" ||
-        target.tagName === "H2" ||
-        target.tagName === "H3" ||
-        target.tagName === "P"
+        Boolean(textLikeTarget)
       ) {
         setExpanded(true);
       }
     };
 
-    const handleOut = (e: MouseEvent) => {
-      const related = e.relatedTarget as HTMLElement | null;
-      if (related?.closest("[data-cursor-text]")) return;
-
+    const handleOut = () => {
       setExpanded(false);
-      setTextHover(false);
     };
 
     window.addEventListener("mousemove", move);
@@ -59,7 +51,7 @@ const CustomCursor = () => {
 
   return (
     <div
-      className={`custom-cursor ${expanded ? "expanded" : ""} ${textHover ? "text-hover" : ""}`}
+      className={`custom-cursor ${expanded ? "expanded" : ""}`}
       style={{ left: pos.x, top: pos.y }}
     />
   );

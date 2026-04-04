@@ -59,6 +59,16 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-family: "ISOCT2", serif;
+    cursor: none;
+  }
+
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  label {
+    cursor: none !important;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -136,16 +146,13 @@
   transition: width 0.22s ease, height 0.22s ease, border-width 0.2s ease,
     background-color 0.22s ease, transform 0.18s ease;
   transform: translate(-50%, -50%);
+  background-color: transparent;
 }
 
 .custom-cursor.expanded {
-  width: 54px;
-  height: 54px;
-  border-width: 1px;
-}
-
-.custom-cursor.text-hover {
-  background-color: hsl(0 0% 0% / 0.08);
+  width: 44px;
+  height: 44px;
+  border-width: 1.25px;
 }
 
 /* Scrollbar */

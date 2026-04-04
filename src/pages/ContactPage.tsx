@@ -55,12 +55,16 @@ const ContactPage = () => {
   return (
     <Layout>
       <div className="min-h-screen bg-surface-light text-surface-light-fg">
-        <div className="mx-auto max-w-4xl px-6 py-16 md:px-12 md:py-24">
+        <div
+          className="mx-auto max-w-4xl px-6 py-16 md:px-12 md:py-24"
+          style={{ fontFamily: '"Inter", sans-serif' }}
+        >
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="mb-6 text-3xl font-bold uppercase tracking-[0.2em] md:text-5xl"
+            style={{ fontFamily: '"ISOCT2", serif', fontWeight: 700 }}
           >
             Kontakti
           </motion.h1>
@@ -83,24 +87,36 @@ const ContactPage = () => {
           >
             <div className="space-y-10">
               <div>
-                <h3 className="mb-6 text-sm uppercase tracking-[0.25em] text-surface-light-fg/40 md:text-base">
+                <h3
+                  className="mb-6 text-sm uppercase tracking-[0.25em] text-surface-light-fg/40 md:text-base"
+                  style={{ fontFamily: '"ISOCT2", serif', fontWeight: 700 }}
+                >
                   Informata
                 </h3>
-                <div className="space-y-5 text-base md:text-lg">
+                <div className="space-y-5 text-[15px] md:text-[17px]">
                   <div>
-                    <span className="mb-1 block text-sm uppercase tracking-wide text-surface-light-fg/40 md:text-base">
+                    <span
+                      className="mb-1 block text-sm uppercase tracking-wide text-surface-light-fg/40 md:text-base"
+                      style={{ fontFamily: '"ISOCT2", serif', fontWeight: 700 }}
+                    >
                       Email
                     </span>
                     <span className="text-surface-light-fg/75">info@themel-studio.com</span>
                   </div>
                   <div>
-                    <span className="mb-1 block text-sm uppercase tracking-wide text-surface-light-fg/40 md:text-base">
+                    <span
+                      className="mb-1 block text-sm uppercase tracking-wide text-surface-light-fg/40 md:text-base"
+                      style={{ fontFamily: '"ISOCT2", serif', fontWeight: 700 }}
+                    >
                       Telefoni
                     </span>
                     <span className="text-surface-light-fg/75">+383 45 213 244</span>
                   </div>
                   <div>
-                    <span className="mb-1 block text-sm uppercase tracking-wide text-surface-light-fg/40 md:text-base">
+                    <span
+                      className="mb-1 block text-sm uppercase tracking-wide text-surface-light-fg/40 md:text-base"
+                      style={{ fontFamily: '"ISOCT2", serif', fontWeight: 700 }}
+                    >
                       Vendndodhja
                     </span>
                     <span className="text-surface-light-fg/75">Rr. EGNATIA, nr. 32, Prishtinë, Kosovë</span>
@@ -109,7 +125,10 @@ const ContactPage = () => {
               </div>
 
               <div>
-                <h3 className="mb-6 text-xs uppercase tracking-[0.25em] text-surface-light-fg/40">
+                <h3
+                  className="mb-6 text-xs uppercase tracking-[0.25em] text-surface-light-fg/40"
+                  style={{ fontFamily: '"ISOCT2", serif', fontWeight: 700 }}
+                >
                   Harta
                 </h3>
                 <div className="overflow-hidden rounded-[28px] border border-surface-light-fg/10 bg-white/40">
@@ -126,7 +145,10 @@ const ContactPage = () => {
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label className="mb-2 block text-xs uppercase tracking-[0.15em] text-surface-light-fg/40">
+                <label
+                  className="mb-2 block text-xs uppercase tracking-[0.15em] text-surface-light-fg/40"
+                  style={{ fontFamily: '"ISOCT2", serif', fontWeight: 700 }}
+                >
                   Emri
                 </label>
                 <input
@@ -138,7 +160,10 @@ const ContactPage = () => {
                 />
               </div>
               <div>
-                <label className="mb-2 block text-xs uppercase tracking-[0.15em] text-surface-light-fg/40">
+                <label
+                  className="mb-2 block text-xs uppercase tracking-[0.15em] text-surface-light-fg/40"
+                  style={{ fontFamily: '"ISOCT2", serif', fontWeight: 700 }}
+                >
                   Email
                 </label>
                 <input
@@ -150,7 +175,10 @@ const ContactPage = () => {
                 />
               </div>
               <div>
-                <label className="mb-2 block text-xs uppercase tracking-[0.15em] text-surface-light-fg/40">
+                <label
+                  className="mb-2 block text-xs uppercase tracking-[0.15em] text-surface-light-fg/40"
+                  style={{ fontFamily: '"ISOCT2", serif', fontWeight: 700 }}
+                >
                   Mesazhi
                 </label>
                 <textarea
@@ -165,6 +193,7 @@ const ContactPage = () => {
                 type="submit"
                 disabled={isSubmitting}
                 className="border border-surface-light-fg/15 px-8 py-3 text-xs uppercase tracking-[0.25em] text-surface-light-fg/60 transition-all hover:border-surface-light-fg/40 hover:text-surface-light-fg"
+                style={{ fontFamily: '"ISOCT2", serif', fontWeight: 700 }}
               >
                 {isSubmitting ? "Duke derguar..." : "Dergo"}
               </button>

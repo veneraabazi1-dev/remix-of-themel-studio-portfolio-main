@@ -49,7 +49,7 @@ export const projects: Project[] = [
   },
   {
     slug: "strukture-druri",
-    title: "E M",
+    title: "IG APARTMENT",
     location: "Skenderaj, Kosove",
     year: "2024",
     status: "Ne realizim",
@@ -66,12 +66,12 @@ export const projects: Project[] = [
   },
   {
     slug: "venus-house",
-    title: "FRAME HOUSE",
+    title: "SKY SPACE",
     location: "Kosove",
     year: "2024",
     status: "Ne zhvillim",
-    area: "240 m²",
-    program: "Rezidence banimi",
+    area: "110 m²",
+    program: "Restaurant",
     description:
       "Projekt rezidencial ne faze realizimi, i konceptuar mbi qartesine e formes dhe struktures arkitektonike. Volumet e pastra dhe organizimi funksional krijojne bazen per nje rezidence bashkekohore te pershtatur per jetese familjare.",
     concept:

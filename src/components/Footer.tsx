@@ -3,13 +3,16 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <footer className="mt-32 border-t border-foreground/10 bg-background">
-      <div className="mx-auto max-w-6xl px-6 py-16 md:px-12">
+      <div
+        className="mx-auto max-w-6xl px-6 py-16 md:px-12"
+        style={{ fontFamily: '"Inter", sans-serif' }}
+      >
         <div className="grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-8">
           <div>
             <h3 className="mb-3 text-lg font-bold uppercase tracking-[0.25em] text-foreground">
               THEMEL
             </h3>
-            <p className="text-sm tracking-wide text-muted-foreground">
+            <p className="text-sm font-semibold tracking-wide text-foreground">
               Projektim Renovim Rindertim
             </p>
           </div>
