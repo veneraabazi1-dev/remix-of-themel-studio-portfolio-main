@@ -16,10 +16,10 @@ export const projects: Project[] = [
   {
     slug: "berthame-teknike",
     title: "TOKA",
-    location: "Drenas, Kosove",
+    location: "Skenderaj, Kosove",
     year: "2024",
     status: "E realizuar",
-    area: "280 m²",
+    area: "750 m²",
     program: "Salle eventi / Hapesire multifunksionale",
     description:
       "Hapesire e madhe interieri e projektuar per aktivitete dhe mbledhje sociale, ku organizimi i hapur dhe ndricimi dekorativ krijojne nje ambient elegant dhe bashkekohor.",

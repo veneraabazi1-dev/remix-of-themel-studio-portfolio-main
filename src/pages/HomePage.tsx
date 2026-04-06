@@ -118,9 +118,9 @@ const HomePage = () => {
             <p
               ref={heroSubtitleRef}
               data-cursor-text
-              className="mt-5 flex flex-col items-center gap-3 text-[11px] uppercase tracking-[0.2em] md:flex-row md:justify-center md:gap-3 md:text-sm"
+              className="mt-6 flex flex-col items-center gap-2 text-[12px] uppercase tracking-[0.24em] md:flex-row md:justify-center md:gap-0 md:text-sm"
               style={{
-                color: `rgba(255, 255, 255, ${0.82 + subtitleIntensity * 0.18})`,
+                color: `rgba(8, 8, 8, ${0.78 + subtitleIntensity * 0.22})`,
                 transform: `scale(${1 + subtitleIntensity * 0.08})`,
                 transition: "transform 0.14s ease-out, color 0.14s ease-out",
               }}
@@ -128,9 +128,9 @@ const HomePage = () => {
               {serviceLabels.map((label, index) => (
                 <div key={label} className="flex items-center gap-3">
                   {index > 0 ? (
-                    <span className="hidden text-[#8f6b36] md:inline">/</span>
+                    <span className="hidden text-[#5f5f5f] md:inline">/</span>
                   ) : null}
-                  <span className="rounded-full bg-[#050505] px-5 py-2 text-center shadow-[0_14px_34px_rgba(0,0,0,0.22)] ring-1 ring-black/70">
+                  <span className="text-center font-semibold text-[#050505]">
                     {label}
                   </span>
                 </div>
