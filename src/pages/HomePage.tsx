@@ -12,6 +12,8 @@ const homeProjectImages: Record<string, string> = {
   "venus-house": "/images/ig-apartment/PROJEKTI/1.jpeg",
 };
 
+const serviceLabels = ["Projektim", "Renovim", "Rindertim"];
+
 const HomePage = () => {
   const location = useLocation();
   const projectsRef = useRef<HTMLDivElement>(null);
@@ -116,18 +118,23 @@ const HomePage = () => {
             <p
               ref={heroSubtitleRef}
               data-cursor-text
-              className="mt-5 flex flex-col items-center gap-2 text-[11px] uppercase tracking-[0.38em] md:flex-row md:justify-center md:gap-0 md:text-sm"
+              className="mt-5 flex flex-col items-center gap-3 text-[11px] uppercase tracking-[0.2em] md:flex-row md:justify-center md:gap-3 md:text-sm"
               style={{
-                color: `rgba(44, 44, 44, ${0.56 + subtitleIntensity * 0.44})`,
+                color: `rgba(255, 255, 255, ${0.82 + subtitleIntensity * 0.18})`,
                 transform: `scale(${1 + subtitleIntensity * 0.08})`,
                 transition: "transform 0.14s ease-out, color 0.14s ease-out",
               }}
             >
-              <span>Projektim</span>
-              <span className="hidden text-[#8f6b36] md:inline">/</span>
-              <span>Renovim</span>
-              <span className="hidden text-[#8f6b36] md:inline">/</span>
-              <span>Rindertim</span>
+              {serviceLabels.map((label, index) => (
+                <div key={label} className="flex items-center gap-3">
+                  {index > 0 ? (
+                    <span className="hidden text-[#8f6b36] md:inline">/</span>
+                  ) : null}
+                  <span className="rounded-full bg-[#050505] px-5 py-2 text-center shadow-[0_14px_34px_rgba(0,0,0,0.22)] ring-1 ring-black/70">
+                    {label}
+                  </span>
+                </div>
+              ))}
             </p>
           </motion.div>
         </section>
