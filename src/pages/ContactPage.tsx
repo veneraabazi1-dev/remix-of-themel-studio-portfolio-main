@@ -119,7 +119,7 @@ const ContactPage = () => {
                     >
                       Vendndodhja
                     </span>
-                    <span className="text-surface-light-fg/75">Rr. EGNATIA, nr. 32, Prishtinë, Kosovë</span>
+                    <span className="text-surface-light-fg/75">Rr. EGNATIA, nr. 32, Ulpianë, Prishtinë, Kosovë</span>
                   </div>
                 </div>
               </div>
@@ -133,7 +133,7 @@ const ContactPage = () => {
                 </h3>
                 <div className="overflow-hidden rounded-[28px] border border-surface-light-fg/10 bg-white/40">
                  <iframe
-                    title="32 Egnatia, Prishtinë"
+                    title="32 Egnatia,Ulpianë, Prishtinë"
                     src="https://www.google.com/maps?hl=sq&gl=xk&q=32+Egnatia,+Prishtinë&z=17&output=embed"
                     className="h-[320px] w-full grayscale contrast-125 brightness-95"
                     loading="lazy"
